@@ -116,3 +116,6 @@ export NVM_DIR="$HOME/.nvm"
 # This is for autojump
 [[ -s /home/marc/.autojump/etc/profile.d/autojump.sh ]] && source /home/marc/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
+
+PATH=$PATH:$HOME/.local/bin
+export PATH
