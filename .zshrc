@@ -100,6 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Aliases
+alias la='ls -a'
+alias ll='ls -laF'
+
 
 cows=( apt bud-frogs bunny cheese cock cower default dragon-and-cow dragon duck elephant elephant-in-snake eyes flaming-sheep koala luke-koala milk moofasa moose pony-smaller sheep skeleton snowman stegosaurus three-eyes turtle tux unipony-smaller vader vader-koala www)
 
