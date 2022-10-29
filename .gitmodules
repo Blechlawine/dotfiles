@@ -1,0 +1,3 @@
+[submodule "apps/nvim/astro-nvim"]
+	path = apps/nvim/astro-nvim
+	url = https://github.com/AstroNvim/AstroNvim

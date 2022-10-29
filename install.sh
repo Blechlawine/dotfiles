@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir ./temp
+
 sudo apt update
 
 # Install cowsay and fortune for zshrc and bashrc
@@ -12,7 +14,9 @@ sudo apt install git python3 wget curl -y
 sudo apt install firefox
 
 # Install nvim and dependencies/other stuff
-sudo apt install neovim python3-neovim -y
+# sudo apt install neovim python3-neovim -y
+curl -L https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb -o ./temp/nvim-0.8.0-linux64.deb
+sudo apt install ./temp/nvim-0.8.0-linux64.deb
 
 # Install Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -22,8 +26,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 # Install autojump
 cd ~
-git clone git://github.com/blechlawine/autojump.git autojump
-./autojump/install.py
+git clone git://github.com/blechlawine/autojump.git ~/autojump
+~/autojump/install.py
 
 # Install vscode and add the repository
 wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
