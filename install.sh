@@ -17,6 +17,11 @@ sudo apt install firefox
 # sudo apt install neovim python3-neovim -y
 curl -L https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb -o ./temp/nvim-0.8.0-linux64.deb
 sudo apt install ./temp/nvim-0.8.0-linux64.deb
+# Install required Nerdfonts
+curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraCode.zip -o ./temp/FiraCode.zip
+unzip ./temp/FiraCode.zip -d ./temp/FiraCode
+sudo mkdir /usr/share/fonts/Nerdfonts-FiraCode
+sudo cp ./temp/FiraCode/*.ttf /usr/share/fonts/Nerdfonts-FiraCode
 
 # Install Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
