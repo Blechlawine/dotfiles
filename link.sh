@@ -8,5 +8,8 @@ ln -s $(pwd)/.p10k.zsh ~/.p10k.zsh
 ln -s $(pwd)/apps/nvim/astro-nvim ~/.config/nvim
 ln -s $(pwd)/apps/nvim/custom/extend-astro-nvim $(pwd)/apps/nvim/astro-nvim/lua/user
 
+# Create alacritty links
+ln -s $(pwd)/apps/alacritty ~/.config/alacritty
+
 # Set default shell to zsh
 sudo chsh -s $(which zsh) $(whoami)
