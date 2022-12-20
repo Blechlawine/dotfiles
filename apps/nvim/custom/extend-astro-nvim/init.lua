@@ -244,6 +244,8 @@ local config = {
             --     require("lsp_signature").setup()
             --   end,
             -- },
+            ["tpope/vim-fugitive"] = {},
+
             ["folke/tokyonight.nvim"] = {},
 
             ["gelguy/wilder.nvim"] = {
