@@ -26,7 +26,7 @@ local config = {
     },
 
     -- Set colorscheme to use
-    colorscheme = "default_theme",
+    colorscheme = "tokyonight-night",
 
     -- Add highlight groups in any theme
     highlights = {
@@ -244,6 +244,7 @@ local config = {
             --     require("lsp_signature").setup()
             --   end,
             -- },
+            ["folke/tokyonight.nvim"] = {},
 
             ["gelguy/wilder.nvim"] = {
                 config = function()
