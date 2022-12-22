@@ -213,6 +213,8 @@ local config = {
             ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
             -- quick save
             ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+            ["<C-Up>"] = { ":m.-2<cr>", desc = "Move line up" },
+            ["<C-Down>"] = { ":m.+1<cr>", desc = "Move line down" },
         },
         t = {
             -- setting a mapping to false will disable it
