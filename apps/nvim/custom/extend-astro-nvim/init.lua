@@ -26,7 +26,8 @@ local config = {
     },
 
     -- Set colorscheme to use
-    colorscheme = "tokyonight-night",
+    -- colorscheme = "tokyonight-night",
+    colorscheme = "duskfox",
 
     -- Add highlight groups in any theme
     highlights = {
@@ -248,7 +249,12 @@ local config = {
             -- },
             ["tpope/vim-fugitive"] = {},
 
+            -- For TSX syntax highlighting
+            ["peitalin/vim-jsx-typescript"] = {},
+
+            -- Themes
             ["folke/tokyonight.nvim"] = {},
+            ["EdenEast/nightfox.nvim"] = {},
 
             ["gelguy/wilder.nvim"] = {
                 config = function()
@@ -293,13 +299,27 @@ local config = {
             return config -- return final config table
         end,
         treesitter = { -- overrides `require("treesitter").setup(...)`
-            ensure_installed = { "lua", "typescript", "help", "rust", "html", "css" },
+            ensure_installed = {
+                "lua",
+                "typescript",
+                "help",
+                "rust",
+                "html",
+                "css",
+            },
         },
         -- use mason-lspconfig to configure LSP installations
         ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-            ensure_installed = { "sumneko_lua", "rust_analyzer", "eslint", "tailwindcss", "emmet_ls",
-                "tsserver", "html",
-                "jsonls" },
+            ensure_installed = {
+                "sumneko_lua",
+                "rust_analyzer",
+                "eslint",
+                "tailwindcss",
+                "emmet_ls",
+                "tsserver",
+                "html",
+                "jsonls"
+            },
         },
         -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
         ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
