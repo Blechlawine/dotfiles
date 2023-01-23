@@ -319,7 +319,9 @@ local config = {
                 "tsserver",
                 "html",
                 "jsonls",
-                "volar"
+                "volar",
+                "svelte",
+                "rome"
             },
         },
         -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
