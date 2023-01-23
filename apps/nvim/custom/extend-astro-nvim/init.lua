@@ -321,7 +321,10 @@ local config = {
                 "jsonls",
                 "volar",
                 "svelte",
-                "rome"
+                "rome",
+                "prismals",
+                "cssls",
+                "astro"
             },
         },
         -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
