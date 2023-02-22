@@ -26,8 +26,8 @@ local config = {
     },
 
     -- Set colorscheme to use
-    -- colorscheme = "tokyonight-night",
-    colorscheme = "duskfox",
+    colorscheme = "tokyonight-night",
+    -- colorscheme = "duskfox",
 
     -- Add highlight groups in any theme
     highlights = {
@@ -255,6 +255,7 @@ local config = {
             -- Themes
             ["folke/tokyonight.nvim"] = {},
             ["EdenEast/nightfox.nvim"] = {},
+
 
             ["gelguy/wilder.nvim"] = {
                 config = function()

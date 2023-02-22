@@ -1,15 +1,33 @@
 #!/bin/bash
 
 # Create links to all the dotfiles in the home directory
-ln -s $(pwd)/.bashrc ~/.bashrc
-ln -s $(pwd)/.zshrc ~/.zshrc
-ln -s $(pwd)/.p10k.zsh ~/.p10k.zsh
+ln -s "$(pwd)/.bashrc" ~/.bashrc
+ln -s "$(pwd)/.zshrc" ~/.zshrc
+ln -s "$(pwd)/.p10k.zsh" ~/.p10k.zsh
 # Create links to nvim config files
-ln -s $(pwd)/apps/nvim/astro-nvim ~/.config/nvim
-ln -s $(pwd)/apps/nvim/custom/extend-astro-nvim $(pwd)/apps/nvim/astro-nvim/lua/user
+echo "Which Neovim Configuration do you want to link?"
+echo "1 = Astro-nvim"
+echo "2 = NvChad"
+read -r nvim_config_index
+# If there is already a nvim config directory, rename it to "nvim_old"
+if [ -f "$HOME/.config/nvim" ]; then
+    if [ -L "$HOME/.config/nvim" ]; then
+        rm "$HOME/.config/nvim"
+    else
+        mv "$HOME/.config/nvim" "$HOME/.config/nvim_old"
+    fi
+fi
+
+if [ "$nvim_config_index" == 1 ]; then
+    ln -s "$(pwd)/apps/nvim/astro-nvim" ~/.config/nvim
+    ln -s "$(pwd)/apps/nvim/custom/extend-astro-nvim" "$(pwd)/apps/nvim/astro-nvim/lua/user"
+elif [ "$nvim_config_index" == 2 ]; then
+    ln -s "$(pwd)/apps/nvim/NvChad" ~/.config/nvim
+    ln -s "$(pwd)/apps/nvim/custom/extend-nvchad" "$(pwd)/apps/nvim/NvChad/lua/custom"
+fi
 
 # Create alacritty links
-ln -s $(pwd)/apps/alacritty ~/.config/alacritty
+ln -s "$(pwd)/apps/alacritty" ~/.config/alacritty
 
 # Set default shell to zsh
-sudo chsh -s $(which zsh) $(whoami)
+sudo chsh -s "$(which zsh)" "$(whoami)"
