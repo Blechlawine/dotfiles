@@ -10,24 +10,24 @@ echo "1 = Astro-nvim"
 echo "2 = NvChad"
 read -r nvim_config_index
 # If there is already a nvim config directory, rename it to "nvim_old"
-if [ -f "$HOME/.config/nvim" ]; then
-    if [ -L "$HOME/.config/nvim" ]; then
-        rm "$HOME/.config/nvim"
+if [ -f ~/.config/nvim ]; then
+    if [ -L ~/.config/nvim ]; then
+        rm ~/.config/nvim
     else
-        mv "$HOME/.config/nvim" "$HOME/.config/nvim_old"
+        mv ~/.config/nvim ~/.config/nvim_old
     fi
 fi
 
 if [ "$nvim_config_index" == 1 ]; then
-    ln -s "$(pwd)/apps/nvim/astro-nvim" ~/.config/nvim
-    ln -s "$(pwd)/apps/nvim/custom/extend-astro-nvim" "$(pwd)/apps/nvim/astro-nvim/lua/user"
+    ln -s $(pwd)/apps/nvim/astro-nvim ~/.config/nvim
+    ln -s $(pwd)/apps/nvim/custom/extend-astro-nvim $(pwd)/apps/nvim/astro-nvim/lua/user
 elif [ "$nvim_config_index" == 2 ]; then
-    ln -s "$(pwd)/apps/nvim/NvChad" ~/.config/nvim
-    ln -s "$(pwd)/apps/nvim/custom/extend-nvchad" "$(pwd)/apps/nvim/NvChad/lua/custom"
+    ln -s $(pwd)/apps/nvim/NvChad ~/.config/nvim
+    ln -s $(pwd)/apps/nvim/custom/extend-nvchad $(pwd)/apps/nvim/NvChad/lua/custom
 fi
 
 # Create alacritty links
-ln -s "$(pwd)/apps/alacritty" ~/.config/alacritty
+ln -s $(pwd)/apps/alacritty ~/.config/alacritty
 
 # Set default shell to zsh
 sudo chsh -s "$(which zsh)" "$(whoami)"
