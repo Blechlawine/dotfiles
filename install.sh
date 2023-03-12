@@ -8,10 +8,13 @@ sudo apt update
 sudo apt install cowsay fortune -y
 
 # Install essential packages
-sudo apt install git python3 wget curl -y
+sudo apt install git python3 wget ffmpeg curl -y
 
 # Install firefox
 sudo apt install firefox
+
+# Install Evolution through Flathub (requires Flathub to be installed and set up)
+flatpak install flathub org.gnome.Evolution
 
 # Install nvim and dependencies/other stuff
 # sudo apt install neovim python3-neovim -y
@@ -40,6 +43,9 @@ echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.
 sudo apt update
 sudo apt install code -y
 
+# Install Rust stuff
+curl https://sh.rustup.rs -sSf | sh
+
 # Install nvm and nodejs
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install node # Installs the latest version of nodejs
@@ -47,3 +53,6 @@ nvm use node
 
 # Install tldr and yarn
 npm install -g tldr yarn
+
+# Enable corepack for yarn 2+
+corepack enable
