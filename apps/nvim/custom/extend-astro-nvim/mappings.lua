@@ -12,8 +12,7 @@ return {
         ["<leader>bD"] = {
             function()
                 require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
-                    require(
-                        "astronvim.utils.buffer").close(bufnr)
+                    require("astronvim.utils.buffer").close(bufnr)
                 end)
             end,
             desc = "Pick to close",
@@ -26,14 +25,6 @@ return {
         -- Move lines with CTRL+ Arrow keys
         ["<C-Up>"] = { ":m.-2<cr>", desc = "Move line up" },
         ["<C-Down>"] = { ":m.+1<cr>", desc = "Move line down" },
-        L = {
-            function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-            desc = "Next buffer"
-        },
-        H = {
-            function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-            desc = "Previous buffer"
-        },
     },
     t = {
         -- setting a mapping to false will disable it
