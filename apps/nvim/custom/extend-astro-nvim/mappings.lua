@@ -36,6 +36,13 @@ return {
 		},
 		-- Go to definition
 		["gd"] = { "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go to definition" },
+		-- Fuzzy find files
+		["<C-e>"] = {
+			function()
+				require("telescope.builtin").find_files()
+			end,
+			desc = "Fuzzy find files",
+		},
 	},
 	t = {
 		-- setting a mapping to false will disable it
