@@ -6,14 +6,14 @@
 return {
 	-- first key is the mode
 	n = {
+		-- Normal mode
 		-- second key is the lefthand side of the map
 		-- mappings seen under group name "Buffer"
 		["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
 		["<leader>bD"] = {
 			function()
 				require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
-					require(
-						"astronvim.utils.buffer").close(bufnr)
+					require("astronvim.utils.buffer").close(bufnr)
 				end)
 			end,
 			desc = "Pick to close",
@@ -26,13 +26,23 @@ return {
 		-- Move lines with CTRL+ Arrow keys
 		["<C-Up>"] = { ":m.-2<cr>", desc = "Move line up" },
 		["<C-Down>"] = { ":m.+1<cr>", desc = "Move line down" },
+		["<C-Space>"] = {
+			function()
+				-- TODO: open autocomplete window
+			end,
+			desc = "Toggle autocomplete window",
+		},
 		L = {
-			function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-			desc = "Next buffer"
+			function()
+				require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
+			end,
+			desc = "Next buffer",
 		},
 		H = {
-			function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-			desc = "Previous buffer"
+			function()
+				require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1))
+			end,
+			desc = "Previous buffer",
 		},
 		-- Go to definition
 		["gd"] = { "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go to definition" },
@@ -45,6 +55,7 @@ return {
 		},
 	},
 	t = {
+		-- Terminal mode
 		-- setting a mapping to false will disable it
 		-- ["<esc>"] = false,
 	},

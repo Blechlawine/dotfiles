@@ -74,4 +74,14 @@ return {
     --     }, { mode = "n", prefix = "<leader>" })
     --   end,
     -- },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        opts = {
+            filesystem = {
+                filtered_items = {
+                    always_show = { ".github", ".gitignore" },
+                },
+            },
+        },
+    },
 }
