@@ -3,10 +3,10 @@
 local M = {}
 
 M.ui = {
-    theme = "onedark",
+    theme = "catppuccin",
 }
 
-M.plugins = require "custom.plugins"
+M.plugins = require "custom.plugins.init"
 M.mappings = require "custom.mappings"
 
 return M

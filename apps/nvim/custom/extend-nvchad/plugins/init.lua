@@ -1,32 +1,35 @@
-local overrides = require "custom.plugins.overrides"
-
-
 local plugins = {
-    ["tpope/vim-fugitive"] = {},
-
+    {
+        "tpope/vim-fugitive",
+    },
     -- For TSX syntax highlighting
-    ["peitalin/vim-jsx-typescript"] = {},
-
-    ["williamboman/mason-lspconfig.nvim"] = {
-        ensure_installed = {
-            "sumneko_lua",
-            "rust_analyzer",
-            "eslint",
-            "tailwindcss",
-            "emmet_ls",
-            "tsserver",
-            "html",
-            "jsonls",
-            "volar",
-            "svelte",
-            "rome",
-            "prismals",
-            "cssls",
-            "astro"
+    {
+        "peitalin/vim-jsx-typescript",
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        lazy = false,
+        opts = {
+            ensure_installed = {
+                "sumneko_lua",
+                "rust_analyzer",
+                "eslint",
+                "tailwindcss",
+                "emmet_ls",
+                "tsserver",
+                "html",
+                "jsonls",
+                "volar",
+                "svelte",
+                "rome",
+                "prismals",
+                "cssls",
+                "astro"
+            },
         },
     },
-
-    ["gelguy/wilder.nvim"] = {
+    {
+        "gelguy/wilder.nvim",
         config = function()
             -- config goes here
             local wilder = require("wilder")
