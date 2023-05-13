@@ -1,0 +1,2 @@
+- [ ] use [heirline](https://github.com/rebelot/heirline.nvim) instead of buffeline and lualine?
+- [ ] Ctrl+Space doesn't open autocomplete, despite being configured to do so
