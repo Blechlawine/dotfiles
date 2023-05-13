@@ -61,14 +61,24 @@ colors: *tokyo-night
 # Font settings
 font:
   normal:
-    family: ComicCodeLigatures Nerd Font
+    family: ComicShannsMono Nerd Font
     style: Regular
   bold:
-    family: ComicCodeLigatures Nerd Font
+    family: ComicShannsMono Nerd Font
     style: Bold
   italic:
-    family: ComicCodeLigatures Nerd Font
+    family: ComicShannsMono Nerd Font
     style: Italic
+# Comic Code ligatures
+  # normal:
+  #   family: ComicCodeLigatures Nerd Font
+  #   style: Regular
+  # bold:
+  #   family: ComicCodeLigatures Nerd Font
+  #   style: Bold
+  # italic:
+  #   family: ComicCodeLigatures Nerd Font
+  #   style: Italic
 
 # Window Settings
 window:
