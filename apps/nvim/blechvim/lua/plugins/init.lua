@@ -78,6 +78,11 @@ local plugins = {
 
     require("plugins.lualine"),
     require("plugins.bufferline"),
+
+    {
+        "Exafunction/codeium.vim",
+        lazy = false,
+    },
 }
 
 require("lazy").setup(plugins, require("plugins.config.lazy"))
