@@ -24,6 +24,8 @@ return {
             -- moving lines up and down
             ["<C-Up>"] = { "<esc>:m.-2<cr>i", "Move line up" },
             ["<C-Down>"] = { "<esc>:m.+1<cr>i", "Move line down" },
+            -- Open File-explorer
+            ["<C-\\>"] = { "<esc>:Neotree toggle<cr>i", "Open Neotree" },
         },
         n = {
             ["<leader>f"] = sections.f,
@@ -71,6 +73,7 @@ return {
                 ":BufferLineCyclePrev<CR>",
                 "Previous buffer",
             },
+            ["<C-\\>"] = { ":Neotree toggle<cr>", "Open Neotree" },
         },
         t = {
             -- terminal mode
