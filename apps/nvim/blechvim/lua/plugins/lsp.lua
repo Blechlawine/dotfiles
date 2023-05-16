@@ -29,6 +29,14 @@ return {
         { 'hrsh7th/nvim-cmp' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'L3MON4D3/LuaSnip' },
+
+        {
+            "ray-x/lsp_signature.nvim",
+            event = "BufRead",
+            config = function()
+                require("lsp_signature").setup()
+            end,
+        },
     },
     opts = {},
     config = function(_, opts)
