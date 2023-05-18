@@ -16,7 +16,8 @@ return {
             "typescript",
             "yaml",
             "json",
-            "rust"
+            "rust",
+            "go",
         },
 
         highlight = {
