@@ -28,12 +28,12 @@ return {
             ["<C-\\>"] = { "<esc>:Neotree toggle<cr>i", "Open Neotree" },
         },
         n = {
-            ["<leader>f"] = sections.f,
-            ["<leader>t"] = sections.t,
-            ["<leader>g"] = sections.g,
-            ["<leader>l"] = sections.l,
-            ["<leader>s"] = sections.s,
             -- normal mode
+            -- ["<leader>f"] = sections.f,
+            -- ["<leader>t"] = sections.t,
+            -- ["<leader>g"] = sections.g,
+            -- ["<leader>l"] = sections.l,
+            -- ["<leader>s"] = sections.s,
             -- move between windows
             ["<C-h>"] = { "<C-w>h", "window left" },
             ["<C-j>"] = { "<C-w>j", "window down" },
@@ -49,6 +49,16 @@ return {
                     require("Comment.api").toggle.linewise.current()
                 end,
                 "toggle comment",
+            },
+            ["<leader>c"] = {
+                ":confirm bd<CR>",
+                "Close current buffer",
+            },
+            ["<leader>lf"] = {
+                function()
+                    vim.lsp.buf.format({ async = true })
+                end,
+                "Format current buffer",
             },
 
             -- moving lines up and down
@@ -145,6 +155,38 @@ return {
                     require("telescope.builtin").help_tags()
                 end,
                 "Find help tags",
+            },
+        },
+    },
+
+    codeium = {
+        i = {
+            ["<A-[>"] = {
+                function()
+                    return vim.fn["codeium#CycleCompletions"](1)
+                end,
+                "Cycle completions forward",
+                opts = {
+                    expr = true,
+                }
+            },
+            ["<A-]>"] = {
+                function()
+                    return vim.fn["codeium#CycleCompletions"](-1)
+                end,
+                "Cycle completions backward",
+                opts = {
+                    expr = true,
+                },
+            },
+            ["<C-Tab>"] = {
+                function()
+                    return vim.fn["codeium#Accept"]()
+                end,
+                "Accept completion",
+                opts = {
+                    expr = true,
+                },
             },
         },
     },

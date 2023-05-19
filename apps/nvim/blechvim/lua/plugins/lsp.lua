@@ -63,6 +63,7 @@ return {
         cmp.setup({
             mapping = {
                 ["<C-Space>"] = cmp.mapping.complete(),
+                ["<ESC>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = false
