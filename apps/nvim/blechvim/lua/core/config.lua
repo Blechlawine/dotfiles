@@ -25,4 +25,4 @@ opt.relativenumber = true
 opt.hlsearch = false
 opt.incsearch = true
 
-vim.cmd.colorscheme = "onedark"
+vim.cmd.colorscheme = "tokyonight"

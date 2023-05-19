@@ -1,10 +1,20 @@
 local plugins = {
     "nvim-lua/plenary.nvim",
+    -- {
+    --     "navarasu/onedark.nvim",
+    --     lazy = false,
+    --     init = function()
+    --         require("onedark").load()
+    --     end
+    -- },
     {
-        "navarasu/onedark.nvim",
+        "folke/tokyonight.nvim",
         lazy = false,
         init = function()
-            require("onedark").load()
+            require("tokyonight").setup({
+                style = "night"
+            })
+            require("tokyonight").load()
         end
     },
 

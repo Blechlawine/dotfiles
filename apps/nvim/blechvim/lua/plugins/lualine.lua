@@ -6,7 +6,7 @@ return {
     },
     opts = {
         options = {
-            theme = "onedark"
+            theme = "tokyonight"
         }
     },
     config = function(_, opts)
