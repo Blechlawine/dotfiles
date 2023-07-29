@@ -48,6 +48,8 @@ local plugins = {
     require("plugins.telescope"),
     -- neo-tree as a file explorer sidebar
     require("plugins.neo-tree"),
+    -- harpoon for quick navigation
+    require("plugins/harpoon"),
 
     -- lsp
     require("plugins.lsp"),

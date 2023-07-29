@@ -190,4 +190,32 @@ return {
             },
         },
     },
+    harpoon = {
+        n = {
+            ["<leader>hh"] = {
+                function()
+                    require("harpoon.ui").toggle_quick_menu()
+                end,
+                "Toggle harpoon quick menu",
+            },
+            ["<leader>ha"] = {
+                function()
+                    require("harpoon.mark").add_file()
+                end,
+                "Add current file to harpoon",
+            },
+            ["<leader>hu"] = {
+                function()
+                    require("harpoon.ui").nav_prev()
+                end,
+                "Navigate to previous file in harpoon",
+            },
+            ["<leader>hd"] = {
+                function()
+                    require("harpoon.ui").nav_next()
+                end,
+                "Navigate to next file in harpoon",
+            },
+        },
+    },
 }
