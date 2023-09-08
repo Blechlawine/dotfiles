@@ -5,7 +5,7 @@ mkdir ./temp
 sudo apt update
 
 # Install cowsay and fortune for zshrc and bashrc
-sudo apt install cowsay fortune -y
+sudo apt install cowsay fortune zsh -y
 
 # Install essential packages
 sudo apt install git python3 wget ffmpeg curl -y
@@ -48,6 +48,11 @@ curl https://sh.rustup.rs -sSf | sh
 
 # Install nvm and nodejs
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 nvm install node # Installs the latest version of nodejs
 nvm use node
 
