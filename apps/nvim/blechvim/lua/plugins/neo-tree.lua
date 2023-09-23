@@ -15,6 +15,12 @@ return {
         require("neo-tree").setup(opts)
     end,
     opts = {
-        close_if_last_window = true,
+        close_if_last_window = false,
+        filesystem = {
+            use_libuv_file_watcher = true,
+            follow_current_file = {
+                enabled = true,
+            },
+        },
     }
 }
