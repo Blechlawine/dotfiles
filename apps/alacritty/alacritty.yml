@@ -71,14 +71,24 @@ font:
 #    family: ComicShannsMono Nerd Font
 #    style: Italic
 # Comic Code ligatures
+#  normal:
+#    family: ComicCodeLigatures Nerd Font
+#    style: Regular
+#  bold:
+#    family: ComicCodeLigatures Nerd Font
+#    style: Bold
+#  italic:
+#    family: ComicCodeLigatures Nerd Font
+#    style: Italic
+# Maple Mono
   normal:
-    family: ComicCodeLigatures Nerd Font
+    family: Maple Mono
     style: Regular
   bold:
-    family: ComicCodeLigatures Nerd Font
+    family: Maple Mono Bold
     style: Bold
   italic:
-    family: ComicCodeLigatures Nerd Font
+    family: Maple Mono Italic
     style: Italic
 
 # Window Settings
