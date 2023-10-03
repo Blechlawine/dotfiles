@@ -12,9 +12,19 @@ return {
         },
     },
     cmd = "Telescope",
-    opts = function()
-        return {
+    config = function()
+        require("telescope").setup({
+            pickers = {
+                find_files = {
+                    hidden = true,
+                },
+            },
             defaults = {
+                file_ignore_patterns = {
+                    ".git",
+                    "node_modules",
+                    "target"
+                },
                 path_display = { "truncate" },
                 sorting_strategy = "ascending",
                 layout_config = {
@@ -30,9 +40,6 @@ return {
                     preview_cutoff = 120,
                 },
             },
-        }
-    end,
-    config = function(_, opts)
-        require("telescope").setup(opts)
+        })
     end,
 }

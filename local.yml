@@ -21,6 +21,12 @@
           - unzip
       tags:
         - shell
+    - name: Install build-essential
+      apt:
+        pkg:
+          - build-essential
+      tags:
+        - nvim
     - name: Change shell
       shell: chsh -s `which zsh`
       tags:
@@ -98,7 +104,10 @@
       tags:
         - kitty
     - name: Create ~/.local/bin folder to avoid stow conflicts
-      shell: mkdir -p ~/.local/bin
+      shell: mkdir -p ~/.local/bin && mkdir -p ~/.local/lib
+      tags:
+        - kitty
+        - nvim
     - name: Stow kitty
       shell: stow . -t ..
       args:
@@ -116,3 +125,23 @@
       shell: rm -rf /usr/local/go && tar -C /usr/local -xzf ./temp/go
       tags:
         - go
+    - name: Download neovim
+      get_url:
+        url: https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+        dest: ./temp/nvim
+        mode: 0755
+        force: true
+      tags:
+        - nvim
+    - name: Install neovim
+      shell: tar xzvf ./nvim-linux64.tar.gz && rm -rf ~/.local/nvim && mv ./nvim-linux64 ~/.local/nvim 
+      args:
+        chdir: ./temp
+      tags:
+        - nvim
+    - name: Stow neovim
+      shell: stow . -t ..
+      args:
+        chdir: ~/.local/nvim
+      tags:
+        - nvim
