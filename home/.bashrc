@@ -120,11 +120,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-cows=( apt bud-frogs bunny cheese cock cower default dragon-and-cow dragon duck elephant elephant-in-snake eyes flaming-sheep koala luke-koala milk moofasa moose pony-smaller sheep skeleton snowman stegosaurus three-eyes turtle tux unipony-smaller vader vader-koala www)
-
-cow=${cows[$RANDOM % ${#cows[@]} ]}
-
-fortune | cowsay -f $cow
+# cows=( apt bud-frogs bunny cheese cock cower default dragon-and-cow dragon duck elephant elephant-in-snake eyes flaming-sheep koala luke-koala milk moofasa moose pony-smaller sheep skeleton snowman stegosaurus three-eyes turtle tux unipony-smaller vader vader-koala www)
+# cow=${cows[$RANDOM % ${#cows[@]} ]}
+# fortune | cowsay -f $cow
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
