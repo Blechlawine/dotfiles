@@ -121,6 +121,7 @@ alias ..='cd ..'
 alias vim='nvim'
 alias vi='nvim'
 
+# Ctrl+f to open tmux sessionizer script
 bindkey -s ^f "tmux-sessionizer\n"
 
 # Print a random animal with a random quote when opening a new terminal
