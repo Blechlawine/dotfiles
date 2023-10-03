@@ -1,0 +1,10 @@
+version: "3"
+services:
+  dotfiles:
+    build:
+      context: .  # Use the current directory as the build context
+      dockerfile: Dockerfile  # Specify the Dockerfile name
+    container_name: dotfiles-test-container
+    volumes:
+      - .:/home/blechlawine/dotfiles
+    tty: true
