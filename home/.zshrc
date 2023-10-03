@@ -132,9 +132,6 @@ export PATH
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# bun completions
-[ -s "/root/.bun/_bun" ] && source "/root/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -143,3 +140,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 # fzf fuzzy auto-completion
 source /usr/share/doc/fzf/examples/completion.zsh
+
+# bun completions
+[ -s "/home/marc/.bun/_bun" ] && source "/home/marc/.bun/_bun"

@@ -1,11 +1,15 @@
 - hosts: localhost
-  become: true
   pre_tasks:
     - name: Update Cache
+      become: true
       apt:
         update_cache: true
+      tags:
+        - shell
+        - node
   tasks:
     - name: Install zsh, stow, git, curl, tmux, fzf
+      become: true
       apt:
         pkg:
           - zsh
@@ -15,35 +19,69 @@
           - tmux
           - fzf
           - unzip
+      tags:
+        - shell
     - name: Change shell
       shell: chsh -s `which zsh`
+      tags:
+        - shell
     - name: Install Oh-my-zsh
       shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      tags:
+        - shell
     - name: Download zsh theme
       shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+      tags:
+        - shell
     - name: Remove old .zshrc and .bashrc
       shell: rm ~/.zshrc ~/.bashrc
+      tags:
+        - shell
     - name: Stow dotfiles
       shell: stow home
+      tags:
+        - shell
+        - dotfiles
     - name: Install nodejs and npm
+      become: true
       apt:
         pkg:
           - nodejs
           - npm
           - yarn
+      tags:
+        - node
     - name: Install n for managing nodejs versions
       npm:
         name: n
         global: true
+      tags:
+        - node
     - name: N install lts
       shell: n lts
+      tags:
+        - node
     - name: Download rustup
       get_url:
         url: https://sh.rustup.rs
         dest: ./temp/rustup
         mode: 0755
         force: true
+      tags:
+        - rust
     - name: Install rust & cargo
       shell: ./temp/rustup -y
+      tags:
+        - rust
+    - name: Download Bun installer
+      get_url:
+        url: https://bun.sh/install
+        dest: ./temp/bun
+        mode: 0755
+        force: true
+      tags:
+        - bun
     - name: Install Bun
-      shell: curl -fsSL https://bun.sh/install | bash
+      shell: ./temp/bun
+      tags:
+        - bun
