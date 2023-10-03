@@ -84,6 +84,11 @@ return {
                 "Previous buffer",
             },
             ["<C-\\>"] = { ":Neotree toggle<cr>", "Open Neotree" },
+
+            -- tmux-sessionizer
+            ["<C-f>"] = {
+                ":silent !tmux neww tmux-sessionizer<CR>",
+            },
         },
         t = {
             -- terminal mode
@@ -135,6 +140,7 @@ return {
             ["<C-t>"] = {
                 function()
                     require("telescope.builtin").find_files()
+                    -- TODO: don't ignore hidden files
                 end,
                 "Find files",
             },

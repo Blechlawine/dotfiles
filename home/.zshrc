@@ -121,6 +121,8 @@ alias ..='cd ..'
 alias vim='nvim'
 alias vi='nvim'
 
+bindkey -s ^f "tmux-sessionizer\n"
+
 # Print a random animal with a random quote when opening a new terminal
 # cows=(apt bud-frogs bunny cheese cock cower default dragon-and-cow dragon duck elephant elephant-in-snake eyes flaming-sheep koala luke-koala milk moofasa moose pony-smaller sheep skeleton snowman stegosaurus three-eyes turtle tux unipony-smaller vader vader-koala www)
 # cow=${cows[$RANDOM % ${#cows[@]} ]}
