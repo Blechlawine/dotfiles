@@ -61,7 +61,7 @@
       shell: n lts
       tags:
         - node
-    - name: Download rustup
+    - name: Download rustup installer
       get_url:
         url: https://sh.rustup.rs
         dest: ./temp/rustup
@@ -85,3 +85,34 @@
       shell: ./temp/bun
       tags:
         - bun
+    - name: Download kitty terminal installer
+      get_url:
+        url: https://sw.kovidgoyal.net/kitty/installer.sh
+        dest: ./temp/kitty
+        mode: 0755
+        force: true
+      tags:
+        - kitty
+    - name: Install kitty terminal
+      shell: ./temp/kitty
+      tags:
+        - kitty
+    - name: Create ~/.local/bin folder to avoid stow conflicts
+      shell: mkdir -p ~/.local/bin
+    - name: Stow kitty
+      shell: stow . -t ..
+      args:
+        chdir: ~/.local/kitty.app
+    - name: Download Go installer
+      get_url:
+        url: https://go.dev/dl/go1.21.1.linux-amd64.tar.gz
+        dest: ./temp/go
+        mode: 0755
+        force: true
+      tags:
+        - go
+    - name: Install Go
+      become: true
+      shell: rm -rf /usr/local/go && tar -C /usr/local -xzf ./temp/go
+      tags:
+        - go
