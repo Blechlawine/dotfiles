@@ -7,6 +7,7 @@ return {
     build = ":TSUpdate",
     opts = {
         ensure_installed = {
+            "bash",
             "lua",
             "html",
             "vue",
