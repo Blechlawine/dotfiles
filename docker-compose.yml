@@ -6,5 +6,5 @@ services:
       dockerfile: Dockerfile  # Specify the Dockerfile name
     container_name: dotfiles-test-container
     volumes:
-      - .:/home/blechlawine/dotfiles
+      - .:/root/dotfiles
     tty: true

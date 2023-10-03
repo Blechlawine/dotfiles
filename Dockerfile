@@ -10,6 +10,6 @@ RUN apt install -y ansible
 # RUN usermod -aG sudo blechlawine
 # USER blechlawine
 
-WORKDIR /home/blechlawine/dotfiles
+WORKDIR /root/dotfiles
 
 CMD ["/bin/bash"]

@@ -1,6 +1,20 @@
 - hosts: localhost
   become: true
   tasks:
-    - name: Install zsh
+    - name: Install zsh, stow, git, curl
       apt:
-        name: zsh
+        pkg:
+          - zsh
+          - stow
+          - git
+          - curl
+    - name: Change shell
+      shell: chsh -s `which zsh`
+    - name: Install Oh-my-zsh
+      shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    - name: Download zsh theme
+      shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    - name: Remove old .zshrc and .bashrc
+      shell: rm ~/.zshrc ~/.bashrc
+    - name: Stow dotfiles
+      shell: stow home

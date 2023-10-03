@@ -116,13 +116,11 @@ alias ..='cd ..'
 alias vim='nvim'
 alias vi='nvim'
 
-cows=( apt bud-frogs bunny cheese cock cower default dragon-and-cow dragon duck elephant elephant-in-snake eyes flaming-sheep koala luke-koala milk moofasa moose pony-smaller sheep skeleton snowman stegosaurus three-eyes turtle tux unipony-smaller vader vader-koala www)
-
-cow=${cows[$RANDOM % ${#cows[@]} ]}
-
-fortune | cowsay -f $cow
-
-echo "--------------------------------------------------------------------"
+# Print a random animal with a random quote when opening a new terminal
+# cows=(apt bud-frogs bunny cheese cock cower default dragon-and-cow dragon duck elephant elephant-in-snake eyes flaming-sheep koala luke-koala milk moofasa moose pony-smaller sheep skeleton snowman stegosaurus three-eyes turtle tux unipony-smaller vader vader-koala www)
+# cow=${cows[$RANDOM % ${#cows[@]} ]}
+# fortune | cowsay -f $cow
+# echo "--------------------------------------------------------------------"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
