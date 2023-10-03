@@ -5,13 +5,16 @@
       apt:
         update_cache: true
   tasks:
-    - name: Install zsh, stow, git, curl
+    - name: Install zsh, stow, git, curl, tmux, fzf
       apt:
         pkg:
           - zsh
           - stow
           - git
           - curl
+          - tmux
+          - fzf
+          - unzip
     - name: Change shell
       shell: chsh -s `which zsh`
     - name: Install Oh-my-zsh
@@ -27,9 +30,20 @@
         pkg:
           - nodejs
           - npm
+          - yarn
     - name: Install n for managing nodejs versions
       npm:
         name: n
         global: true
     - name: N install lts
       shell: n lts
+    - name: Download rustup
+      get_url:
+        url: https://sh.rustup.rs
+        dest: ./temp/rustup
+        mode: 0755
+        force: true
+    - name: Install rust & cargo
+      shell: ./temp/rustup -y
+    - name: Install Bun
+      shell: curl -fsSL https://bun.sh/install | bash
