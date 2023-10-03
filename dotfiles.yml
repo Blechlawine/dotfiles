@@ -1,5 +1,9 @@
 - hosts: localhost
   become: true
+  pre_tasks:
+    - name: Update Cache
+      apt:
+        update_cache: true
   tasks:
     - name: Install zsh, stow, git, curl
       apt:
@@ -18,3 +22,14 @@
       shell: rm ~/.zshrc ~/.bashrc
     - name: Stow dotfiles
       shell: stow home
+    - name: Install nodejs and npm
+      apt:
+        pkg:
+          - nodejs
+          - npm
+    - name: Install n for managing nodejs versions
+      npm:
+        name: n
+        global: true
+    - name: N install lts
+      shell: n lts
