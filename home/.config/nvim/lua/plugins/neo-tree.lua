@@ -16,10 +16,21 @@ return {
     end,
     opts = {
         close_if_last_window = false,
+        window = {
+            position = "current",
+        },
         filesystem = {
             use_libuv_file_watcher = true,
             follow_current_file = {
                 enabled = true,
+            },
+            filtered_items = {
+                hide_dotfiles = false,
+                hide_by_name = {
+                    ".git",
+                    "node_modules",
+                    "target",
+                },
             },
         },
     }
