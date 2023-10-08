@@ -29,10 +29,10 @@ return {
         },
         n = {
             -- normal mode
-            -- ["<leader>f"] = sections.f,
+            ["<leader>f"] = { desc = "Telescope" },
             -- ["<leader>t"] = sections.t,
             -- ["<leader>g"] = sections.g,
-            -- ["<leader>l"] = sections.l,
+            ["<leader>l"] = { desc = "LSP" },
             -- ["<leader>s"] = sections.s,
             -- move between windows
             ["<C-h>"] = { "<C-w>h", "window left" },
@@ -165,6 +165,16 @@ return {
         },
     },
 
+    lsp = {
+        n = {
+            ["gd"] = {
+                function()
+                    vim.lsp.buf.definition()
+                end
+            }
+        },
+    },
+
     codeium = {
         i = {
             ["<A-[>"] = {
@@ -198,6 +208,9 @@ return {
     },
     harpoon = {
         n = {
+            ["<leader>h"] = {
+                desc = "Harpoon",
+            },
             ["<leader>hh"] = {
                 function()
                     require("harpoon.ui").toggle_quick_menu()

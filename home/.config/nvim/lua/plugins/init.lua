@@ -80,15 +80,7 @@ local plugins = {
     -- autocompletion
     require("plugins.cmp"),
 
-    -- {
-    --     "folke/which-key.nvim",
-    --     keys = { "<leader>", '"', "'", "`", "c", "v" },
-    --     opts = {},
-    --     config = function(_, opts)
-    --         require("which-key").setup(opts)
-    --         require("core.utils").which_key_register()
-    --     end,
-    -- },
+    require("plugins.which-key"),
     require("plugins.wilder"),
 
     require("plugins.lualine"),
