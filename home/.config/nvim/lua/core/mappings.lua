@@ -166,13 +166,6 @@ return {
     },
 
     lsp = {
-        n = {
-            ["gd"] = {
-                function()
-                    vim.lsp.buf.definition()
-                end
-            }
-        },
     },
 
     codeium = {
