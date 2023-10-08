@@ -1,7 +1,7 @@
 return {
     "ThePrimeagen/harpoon",
     lazy = false,
-    config = function()
+    config = function(_, opts)
         require("harpoon").setup({})
     end
 }

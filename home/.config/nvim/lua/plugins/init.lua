@@ -49,7 +49,7 @@ local plugins = {
     -- neo-tree as a file explorer sidebar
     require("plugins.neo-tree"),
     -- harpoon for quick navigation
-    require("plugins/harpoon"),
+    require("plugins.harpoon"),
 
     -- lsp
     require("plugins.lsp"),
@@ -64,7 +64,10 @@ local plugins = {
     -- For TSX syntax highlighting
     {
         "peitalin/vim-jsx-typescript",
-        -- TODO: when should this load?
+        event = "BufRead .tsx", -- load on opening .tsx files
+        config = function(_, opts)
+            require("jsx-typescript").setup(opts)
+        end,
     },
 
     {

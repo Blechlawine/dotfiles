@@ -7,7 +7,7 @@ return {
     opts = {
         options = {
             theme = "tokyonight"
-        }
+        },
     },
     config = function(_, opts)
         require("lualine").setup(opts)

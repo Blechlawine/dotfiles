@@ -1,6 +1,9 @@
 return {
     "akinsho/bufferline.nvim",
     lazy = false,
+    init = function()
+        vim.opt.termguicolors = true
+    end,
     opts = {
         options = {
             hover = {
@@ -17,7 +20,6 @@ return {
         },
     },
     config = function(_, opts)
-        vim.opt.termguicolors = true
         require("bufferline").setup(opts)
     end
 }
