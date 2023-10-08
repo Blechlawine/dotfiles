@@ -59,6 +59,11 @@ return {
             event = "BufRead",
             config = function()
                 require("lsp_signature").setup()
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    callback = function()
+                        vim.lsp.buf.format()
+                    end
+                })
             end,
         },
     },
@@ -77,7 +82,7 @@ return {
             "jsonls",
             "volar",
             "svelte",
-            "rome",
+            "biome",
             "prismals",
             "cssls",
             "astro"
