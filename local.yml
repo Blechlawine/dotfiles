@@ -134,7 +134,7 @@
       tags:
         - nvim
     - name: Install neovim
-      shell: tar xzvf ./nvim-linux64.tar.gz && rm -rf ~/.local/nvim && mv ./nvim-linux64 ~/.local/nvim 
+      shell: tar xzvf ./nvim && rm -rf ~/.local/nvim && mv ./nvim-linux64 ~/.local/nvim 
       args:
         chdir: ./temp
       tags:
