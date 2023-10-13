@@ -121,6 +121,8 @@ alias ..='cd ..'
 alias vim='nvim'
 alias vi='nvim'
 
+alias search="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | xargs nvim"
+
 # Ctrl+f to open tmux sessionizer script
 bindkey -s ^f "tmux-sessionizer\n"
 
