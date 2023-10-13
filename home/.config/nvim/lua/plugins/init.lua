@@ -25,6 +25,18 @@ local plugins = {
         init = function()
             require("catppuccin").setup({
                 flavour = "mocha",
+                integrations = {
+                    mason = true,
+                    harpoon = true,
+                    which_key = true,
+                    telescope = {
+                        enabled = true,
+                        style = "nvchad",
+                    },
+                    dropbar = {
+                        enabled = true,
+                    },
+                },
             })
             require("catppuccin").load()
         end
