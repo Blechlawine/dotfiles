@@ -17,6 +17,13 @@ local plugins = {
             require("tokyonight").load()
         end
     },
+    {
+        "lunarvim/horizon.nvim",
+        lazy = false,
+        init = function()
+            require("horizon").setup({})
+        end
+    },
 
     {
         "NvChad/nvim-colorizer.lua",

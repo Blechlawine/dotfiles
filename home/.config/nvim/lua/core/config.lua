@@ -26,4 +26,4 @@ opt.relativenumber = true
 opt.hlsearch = false
 opt.incsearch = true
 
-vim.cmd.colorscheme = "tokyonight"
+vim.cmd.colorscheme = "horizon"
