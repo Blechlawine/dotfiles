@@ -132,6 +132,16 @@ local plugins = {
 
     require("plugins.lualine"),
     require("plugins.bufferline"),
+    --    {
+    --        "Bekaboo/dropbar.nvim",
+    --        lazy = false,
+    --        dependencies = {
+    --            "nvim-telescope/telescope-fzf-native.nvim",
+    --        },
+    --        config = function(_, opts)
+    --            require("dropbar").setup(opts)
+    --        end
+    --    },
 
     -- AI code completion
     {
