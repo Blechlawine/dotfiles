@@ -5,3 +5,4 @@
 - [ ] neovim
 - [ ] Nerdfonts
 - [ ] exa, and alias ls to exa
+
