@@ -123,6 +123,8 @@ alias vi='nvim'
 
 alias search="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | xargs nvim"
 
+alias clip="xclip -selection clipboard"
+
 # Ctrl+f to open tmux sessionizer script
 bindkey -s ^f "tmux-sessionizer\n"
 
