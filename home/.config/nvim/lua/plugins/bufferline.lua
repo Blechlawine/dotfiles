@@ -1,5 +1,8 @@
 return {
     "akinsho/bufferline.nvim",
+    dependencies = {
+        "catppuccin/nvim",
+    },
     lazy = false,
     init = function()
         vim.opt.termguicolors = true

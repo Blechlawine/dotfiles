@@ -1,12 +1,12 @@
 local plugins = {
     "nvim-lua/plenary.nvim",
-    -- {
-    --     "navarasu/onedark.nvim",
-    --     lazy = false,
-    --     init = function()
-    --         require("onedark").load()
-    --     end
-    -- },
+    {
+        "navarasu/onedark.nvim",
+        lazy = false,
+        init = function()
+            -- require("onedark").load()
+        end
+    },
     {
         "folke/tokyonight.nvim",
         lazy = false,
@@ -14,7 +14,31 @@ local plugins = {
             require("tokyonight").setup({
                 style = "night"
             })
-            require("tokyonight").load()
+            -- require("tokyonight").load()
+        end
+    },
+    {
+        "catppuccin/nvim",
+        lazy = false,
+        priority = 100,
+        name = "catppuccin",
+        init = function()
+            require("catppuccin").setup({
+                flavour = "mocha",
+                integrations = {
+                    mason = true,
+                    harpoon = true,
+                    which_key = true,
+                    telescope = {
+                        enabled = true,
+                        style = "nvchad",
+                    },
+                    dropbar = {
+                        enabled = true,
+                    },
+                },
+            })
+            require("catppuccin").load()
         end
     },
     {
@@ -25,6 +49,7 @@ local plugins = {
         end
     },
 
+    -- For highlighting colors like #FF0000
     {
         "NvChad/nvim-colorizer.lua",
         init = function()
@@ -61,6 +86,7 @@ local plugins = {
     -- lsp
     require("plugins.lsp"),
 
+    -- For easy control over formatters
     {
         "stevearc/conform.nvim",
         lazy = false,
@@ -69,7 +95,8 @@ local plugins = {
                 javascript = { "biome" },
                 typescript = { "biome" },
                 json = { "biome" },
-                lua = { "stylua" }
+                lua = { "stylua" },
+                vue = { "volar" },
             },
             format_on_save = {
                 timeout_ms = 1000,
@@ -97,12 +124,12 @@ local plugins = {
         end,
     },
 
-    {
-        "numToStr/Comment.nvim",
-        config = function(_, opts)
-            require("Comment").setup(opts)
-        end,
-    },
+    -- {
+    --     "numToStr/Comment.nvim",
+    --     config = function(_, opts)
+    --         require("Comment").setup(opts)
+    --     end,
+    -- },
 
     -- autocompletion
     require("plugins.cmp"),
@@ -112,7 +139,18 @@ local plugins = {
 
     require("plugins.lualine"),
     require("plugins.bufferline"),
+    --    {
+    --        "Bekaboo/dropbar.nvim",
+    --        lazy = false,
+    --        dependencies = {
+    --            "nvim-telescope/telescope-fzf-native.nvim",
+    --        },
+    --        config = function(_, opts)
+    --            require("dropbar").setup(opts)
+    --        end
+    --    },
 
+    -- AI code completion
     {
         "Exafunction/codeium.vim",
         lazy = false,

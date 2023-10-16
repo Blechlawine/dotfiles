@@ -121,6 +121,10 @@ alias ..='cd ..'
 alias vim='nvim'
 alias vi='nvim'
 
+alias search="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | xargs nvim"
+
+alias clip="xclip -selection clipboard"
+
 # Ctrl+f to open tmux sessionizer script
 bindkey -s ^f "tmux-sessionizer\n"
 
@@ -134,7 +138,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-PATH=$PATH:$HOME/.local/bin:/usr/local/go/bin
+export GOPATH=$HOME/go
+
+PATH=$PATH:$HOME/.local/bin:/usr/local/go/bin:$GOPATH/bin
 export PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
