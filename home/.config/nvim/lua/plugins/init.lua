@@ -1,22 +1,22 @@
 local plugins = {
     "nvim-lua/plenary.nvim",
-    {
-        "navarasu/onedark.nvim",
-        lazy = false,
-        init = function()
-            -- require("onedark").load()
-        end
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        init = function()
-            require("tokyonight").setup({
-                style = "night"
-            })
-            -- require("tokyonight").load()
-        end
-    },
+    -- {
+    --     "navarasu/onedark.nvim",
+    --     lazy = false,
+    --     init = function()
+    --         require("onedark").load()
+    --     end
+    -- },
+    -- {
+    --     "folke/tokyonight.nvim",
+    --     lazy = false,
+    --     init = function()
+    --         require("tokyonight").setup({
+    --             style = "night"
+    --         })
+    --         require("tokyonight").load()
+    --     end
+    -- },
     {
         "catppuccin/nvim",
         lazy = false,
@@ -41,13 +41,13 @@ local plugins = {
             require("catppuccin").load()
         end
     },
-    {
-        "lunarvim/horizon.nvim",
-        lazy = false,
-        init = function()
-            require("horizon").setup({})
-        end
-    },
+    -- {
+    --     "lunarvim/horizon.nvim",
+    --     lazy = false,
+    --     init = function()
+    --         require("horizon").setup({})
+    --     end
+    -- },
 
     -- For highlighting colors like #FF0000
     {

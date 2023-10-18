@@ -6,7 +6,7 @@ return {
     },
     opts = {
         options = {
-            theme = "horizon"
+            theme = "catppuccin"
         },
     },
     config = function(_, opts)
