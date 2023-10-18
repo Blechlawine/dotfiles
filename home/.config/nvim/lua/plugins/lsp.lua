@@ -50,6 +50,12 @@ return {
                         "svelte",
                     },
                 })
+
+                lspconfig.tsserver.setup({
+                    experimental = {
+                        enable_project_diagnostics = true,
+                    },
+                })
             end,
         },
         require("plugins.mason"),
