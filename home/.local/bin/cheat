@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 languages=$(echo "golang typescript rust lua javascript python bash" | tr " " "\n")
-core_utils=$(echo "find xargs sed awk tr sort tar grep" | tr " " "\n")
+core_utils=$(echo "find xargs sed awk read head tail less tr sort tar grep" | tr " " "\n")
 
 selected=$(echo -e "$languages\n$core_utils" | fzf)
 
