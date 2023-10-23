@@ -49,6 +49,15 @@ local plugins = {
     --     end
     -- },
 
+    -- neoconf for project specific configuration (this needs to run before lsp setups)
+    {
+        "folke/neoconf.nvim",
+        lazy = false,
+        init = function(opts)
+            require("neoconf").setup(opts)
+        end
+    },
+
     -- For highlighting colors like #FF0000
     {
         "NvChad/nvim-colorizer.lua",
@@ -113,7 +122,7 @@ local plugins = {
         cmd = {
             "G",
             "Git"
-        }
+        },
     },
     -- For TSX syntax highlighting
     {

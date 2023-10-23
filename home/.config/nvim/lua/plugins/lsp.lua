@@ -34,6 +34,11 @@ return {
 
                 local lspconfig = require("lspconfig")
                 lspconfig.volar.setup({
+                    -- filetypes = {
+                    --     "vue",
+                    --     "typescript",
+                    --     "javascript",
+                    -- },
                     on_new_config = function(new_config, new_root_dir)
                         new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
                     end,
@@ -48,12 +53,6 @@ return {
                         "scss",
                         "typescriptreact",
                         "svelte",
-                    },
-                })
-
-                lspconfig.tsserver.setup({
-                    experimental = {
-                        enable_project_diagnostics = true,
                     },
                 })
             end,
