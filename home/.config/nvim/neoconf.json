@@ -1,0 +1,7 @@
+{
+    "lspconfig": {
+        "tsserver": {
+            "typescript.tsserver.experimental.enableProjectDiagnostics": true
+        }
+    }
+}
