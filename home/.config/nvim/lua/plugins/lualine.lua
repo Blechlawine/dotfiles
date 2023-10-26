@@ -6,6 +6,7 @@ return {
     },
     opts = {
         options = {
+            -- TODO: fix catppuccin theme for lualine
             theme = "catppuccin"
         },
     },
