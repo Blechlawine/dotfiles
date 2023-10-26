@@ -73,13 +73,7 @@ local plugins = {
             end, 0)
         end,
     },
-    {
-        "nvim-tree/nvim-web-devicons",
-        opts = {},
-        config = function(_, opts)
-            require("nvim-web-devicons").setup(opts)
-        end,
-    },
+    require("plugins.icons"),
     -- blankline for indent-guides
     require("plugins.blankline"),
 
