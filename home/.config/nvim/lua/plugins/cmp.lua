@@ -54,8 +54,26 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
         },
+        {
+            "David-Kunz/cmp-npm",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+            },
+            ft = "json",
+            config = function(_, opts)
+                require("cmp-npm").setup(opts)
+            end
+        }
     },
-    opts = {},
+    opts = {
+        sources = {
+            { name = "npm",     keyword_length = 4 },
+            { name = "luasnip" },
+            { name = "nvim_lsp" },
+            { name = "buffer" },
+            { name = "path" },
+        }
+    },
     config = function(_, opts)
         require("cmp").setup(opts)
     end

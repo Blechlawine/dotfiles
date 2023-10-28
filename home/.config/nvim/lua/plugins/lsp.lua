@@ -55,6 +55,19 @@ return {
                         "svelte",
                     },
                 })
+
+                lspconfig.jsonls.setup({
+                    settings = {
+                        json = {
+                            schemas = {
+                                {
+                                    fileMatch = { "package.json" },
+                                    url = "https://json.schemastore.org/package.json",
+                                },
+                            },
+                        },
+                    },
+                })
             end,
         },
         require("plugins.mason"),
