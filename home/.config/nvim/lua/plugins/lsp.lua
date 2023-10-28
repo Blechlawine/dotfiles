@@ -112,6 +112,7 @@ return {
             "prismals",
             "cssls",
             "astro",
+            "templ",
             "gopls"
         })
 
