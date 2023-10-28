@@ -27,3 +27,9 @@ opt.hlsearch = false
 opt.incsearch = true
 
 vim.cmd.colorscheme = "catppuccin-mocha"
+
+vim.filetype.add({
+    extension = {
+        templ = "templ"
+    },
+})
