@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
 
-session=$(find ~/Dev ~/dotfiles -maxdepth 4 -type d -readable -writable -follow -name '.git' -exec dirname {} \; | fzf)
+trap cleanup SIGINT
+
+cleanup() {
+    echo "Received SIGINT, cleaning up..."
+    kill -INT $find_pid
+    exit 1
+}
+
+session=$(find ~/Dev ~/dotfiles -maxdepth 4 -type d -readable -writable -follow -name '.git' -exec dirname {} \; 2> /dev/null | fzf --preview "ls -lah {}"&)
+find_pid=$!
+
+wait $find_pid
+
+if [ -z "$session" ]; then
+    exit
+fi
 
 session_name=$(basename "$session" | tr . -)
 
