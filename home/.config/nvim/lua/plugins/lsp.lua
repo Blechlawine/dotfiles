@@ -1,6 +1,6 @@
 return {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
     event = { "BufRead" },
     dependencies = {
         -- LSP Support
@@ -13,14 +13,14 @@ return {
             opts = {},
             config = function()
                 -- fallback to global typescript installation when local one is not found
-                local util = require 'lspconfig.util'
+                local util = require("lspconfig.util")
                 local function get_typescript_server_path(root_dir)
-                    local global_ts = '/home/marc/.npm/lib/node_modules/typescript/lib'
+                    local global_ts = "/home/marc/.npm/lib/node_modules/typescript/lib"
                     -- Alternative location if installed as root:
-                    -- local global_ts = '/usr/local/lib/node_modules/typescript/lib'
-                    local found_ts = ''
+                    -- local global_ts = "/usr/local/lib/node_modules/typescript/lib"
+                    local found_ts = ""
                     local function check_dir(path)
-                        found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib')
+                        found_ts = util.path.join(path, "node_modules", "typescript", "lib")
                         if util.path.exists(found_ts) then
                             return path
                         end
@@ -85,9 +85,9 @@ return {
         },
 
         -- Autocompletion
-        { 'hrsh7th/nvim-cmp' },
-        { 'hrsh7th/cmp-nvim-lsp' },
-        { 'L3MON4D3/LuaSnip' },
+        { "hrsh7th/nvim-cmp" },
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "L3MON4D3/LuaSnip" },
 
         {
             "ray-x/lsp_signature.nvim",
