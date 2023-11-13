@@ -71,5 +71,45 @@ return {
     echo = function(str)
         vim.cmd("redraw")
         vim.api.nvim_echo({ { str } }, true, {})
+    end,
+
+    read_json_file = function(filename)
+        local Path = require("plenary.path")
+
+        local path = Path:new(filename)
+        if not path:exists() then
+            return nil
+        end
+
+        local json_contents = path:read()
+        local json = vim.fn.json_decode(json_contents)
+
+        return json
+    end,
+
+    read_package_json = function()
+        local utils = require("core.utils")
+        return utils.read_json_file("package.json")
+    end,
+
+    ---Check if the given NPM package is installed in the current project.
+    ---@param package string
+    ---@return boolean
+    is_npm_package_installed = function(package)
+        local utils = require("core.utils")
+        local package_json = utils.read_package_json()
+        if not package_json then
+            return false
+        end
+
+        if package_json.dependencies and package_json.dependencies[package] then
+            return true
+        end
+
+        if package_json.devDependencies and package_json.devDependencies[package] then
+            return true
+        end
+
+        return false
     end
 }

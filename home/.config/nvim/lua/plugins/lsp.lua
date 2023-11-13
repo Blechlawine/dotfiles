@@ -34,11 +34,11 @@ return {
 
                 local lspconfig = require("lspconfig")
                 lspconfig.volar.setup({
-                    -- filetypes = {
-                    --     "vue",
-                    --     "typescript",
-                    --     "javascript",
-                    -- },
+                    filetypes = {
+                        "vue",
+                        "typescript",
+                        "javascript",
+                    },
                     on_new_config = function(new_config, new_root_dir)
                         new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
                     end,
@@ -68,6 +68,10 @@ return {
                         },
                     },
                 })
+
+                if not require("core.utils").is_npm_package_installed("vue") then
+                    lspconfig.tsserver.setup({})
+                end
             end,
         },
         require("plugins.mason"),
