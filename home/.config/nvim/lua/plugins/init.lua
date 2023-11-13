@@ -86,6 +86,8 @@ local plugins = {
     -- harpoon for quick navigation
     require("plugins.harpoon"),
 
+    -- neodev for neovim lua development
+    require("plugins.neodev"),
     -- lsp
     require("plugins.lsp"),
 
@@ -159,5 +161,6 @@ local plugins = {
         lazy = false,
     },
 }
+
 
 require("lazy").setup(plugins, require("plugins.config.lazy"))
