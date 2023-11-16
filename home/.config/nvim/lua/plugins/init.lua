@@ -86,10 +86,10 @@ local plugins = {
     -- harpoon for quick navigation
     require("plugins.harpoon"),
 
-    -- neodev for neovim lua development
-    require("plugins.neodev"),
     -- lsp
-    require("plugins.lsp"),
+    require("plugins.mason"),
+    require("plugins.lsp.mason-lspconfig"),
+    require("plugins.lsp.lspconfig"),
 
     -- For easy control over formatters
     {
@@ -161,6 +161,7 @@ local plugins = {
         lazy = false,
     },
 }
-
+-- initialize lsp mappings
+require("plugins.lsp.init")
 
 require("lazy").setup(plugins, require("plugins.config.lazy"))

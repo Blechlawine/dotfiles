@@ -65,16 +65,32 @@ return {
             end
         }
     },
-    opts = {
-        sources = {
-            { name = "npm",     keyword_length = 4 },
-            { name = "luasnip" },
-            { name = "nvim_lsp" },
-            { name = "buffer" },
-            { name = "path" },
-        }
-    },
-    config = function(_, opts)
-        require("cmp").setup(opts)
+    config = function()
+        local cmp = require("cmp")
+        cmp.setup({
+            snippet = {
+                expand = function(args)
+                    require("luasnip").lsp_expand(args.body)
+                end,
+            },
+            sources = {
+                { name = "npm",     keyword_length = 4 },
+                { name = "luasnip" },
+                { name = "nvim_lsp" },
+                { name = "buffer" },
+                { name = "path" },
+            },
+            mapping = {
+                ["<C-Space>"] = cmp.mapping.complete(),
+                ["<ESC>"] = cmp.mapping.abort(),
+                ["<CR>"] = cmp.mapping.confirm({
+                    behavior = cmp.ConfirmBehavior.Replace,
+                    select = false
+                }),
+                -- select completion with arrow keys
+                ["<Down>"] = cmp.mapping.select_next_item(),
+                ["<Up>"] = cmp.mapping.select_prev_item(),
+            },
+        })
     end
 }
