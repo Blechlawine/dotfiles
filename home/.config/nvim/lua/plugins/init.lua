@@ -91,6 +91,25 @@ local plugins = {
     require("plugins.lsp.mason-lspconfig"),
     require("plugins.lsp.lspconfig"),
 
+    -- show crate version in cargo.toml
+    {
+        "saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        tag = "v0.4.0",
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        },
+        config = function()
+            require("crates").setup({
+                src = {
+                    cmp = {
+                        enabled = true,
+                    },
+                },
+            })
+        end,
+    },
+
     -- For easy control over formatters
     {
         "stevearc/conform.nvim",

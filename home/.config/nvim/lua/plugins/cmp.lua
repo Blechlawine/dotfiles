@@ -77,6 +77,7 @@ return {
                 { name = "npm",     keyword_length = 4 },
                 { name = "luasnip" },
                 { name = "nvim_lsp" },
+                { name = "crates" },
                 { name = "buffer" },
                 { name = "path" },
             },
