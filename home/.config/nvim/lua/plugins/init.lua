@@ -180,7 +180,5 @@ local plugins = {
         lazy = false,
     },
 }
--- initialize lsp mappings
-require("plugins.lsp.init")
 
 require("lazy").setup(plugins, require("plugins.config.lazy"))

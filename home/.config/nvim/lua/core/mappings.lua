@@ -26,6 +26,13 @@ return {
             ["<C-Down>"] = { "<esc>:m.+1<cr>i", "Move line down" },
             -- Open File-explorer
             ["<C-\\>"] = { "<esc>:Neotree toggle<cr>i", "Open Neotree" },
+
+            ["<C-e>"] = {
+                function()
+                    require("cmp").mapping.confirm({ select = false })
+                end,
+                "Expand Emmet completion"
+            }
         },
         n = {
             -- normal mode
