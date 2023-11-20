@@ -29,7 +29,19 @@ return {
             end,
             tsserver = function()
                 if not require("core.utils").is_npm_package_installed("vue") then
-                    require("lspconfig").tsserver.setup({})
+                    require("lspconfig").tsserver.setup({
+                        settings = {
+                            tsserver = {
+                                typescript = {
+                                    tsserver = {
+                                        experimental = {
+                                            enableProjectDiagnostics = true,
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    })
                 end
             end,
             emmet_ls = function()
