@@ -19,6 +19,7 @@ return {
             "json",
             "rust",
             "go",
+            "toml",
         },
 
         highlight = {

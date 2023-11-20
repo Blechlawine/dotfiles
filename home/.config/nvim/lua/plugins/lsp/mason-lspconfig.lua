@@ -128,7 +128,8 @@ return {
             "cssls",
             "astro",
             "templ",
-            "gopls"
+            "gopls",
+            "taplo",
         },
     },
 }
