@@ -162,6 +162,12 @@ return {
                 end,
                 "Find help tags",
             },
+            ["<leader>fn"] = {
+                function()
+                    require("telescope").extensions.notify.notify()
+                end,
+                "Find notifications",
+            },
         },
     },
 
