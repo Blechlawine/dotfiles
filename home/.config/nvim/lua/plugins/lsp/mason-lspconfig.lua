@@ -52,6 +52,17 @@ return {
                     require("lspconfig").tsserver.setup({
                         capabilities = capabilities,
                         on_attach = on_attach,
+                        settings = {
+                            tsserver = {
+                                typescript = {
+                                    tsserver = {
+                                        experimental = {
+                                            enableProjectDiagnostics = true,
+                                        },
+                                    },
+                                },
+                            },
+                        },
                     })
                 end
             end,
@@ -82,6 +93,17 @@ return {
                                     fileMatch = { "package.json" },
                                     url = "https://json.schemastore.org/package.json",
                                 },
+                            },
+                        },
+                    },
+                })
+            end,
+            rust_analyzer = function()
+                require("lspconfig").rust_analyzer.setup({
+                    settings = {
+                        ["rust-analyzer"] = {
+                            check = {
+                                command = "clippy",
                             },
                         },
                     },

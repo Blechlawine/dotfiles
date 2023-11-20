@@ -48,6 +48,13 @@ local plugins = {
     --         require("horizon").setup({})
     --     end
     -- },
+    {
+        "rcarriga/nvim-notify",
+        lazy = false,
+        init = function()
+            vim.notify = require("notify")
+        end
+    },
 
     -- neoconf for project specific configuration (this needs to run before lsp setups)
     {
