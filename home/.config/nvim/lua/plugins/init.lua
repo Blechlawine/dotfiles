@@ -127,7 +127,14 @@ local plugins = {
                 typescript = { "biome" },
                 json = { "biome" },
                 lua = { "stylua" },
-                vue = { "volar" },
+                vue = { "prettierd" },
+            },
+            formatters = {
+                prettierd = {
+                    env = {
+                        PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/.prettierrc.json"),
+                    },
+                },
             },
             format_on_save = {
                 timeout_ms = 1000,
