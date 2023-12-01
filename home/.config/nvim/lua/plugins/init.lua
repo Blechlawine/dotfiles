@@ -37,7 +37,13 @@ local plugins = {
                     parameters = "NONE",
                     conditionals = "italic",
                     virtual_text = "NONE",
-                }
+                },
+                options = {
+                    cursorline = true,
+                },
+                colors = {
+                    purple = "#A656AC"
+                },
             })
             vim.cmd("colorscheme onedark_dark")
         end,
