@@ -7,7 +7,7 @@ return {
     opts = {
         options = {
             -- TODO: fix catppuccin theme for lualine
-            theme = "catppuccin"
+            theme = "onedark_dark"
         },
     },
     config = function(_, opts)

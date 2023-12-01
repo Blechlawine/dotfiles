@@ -18,29 +18,38 @@ local plugins = {
     --     end
     -- },
     {
-        "catppuccin/nvim",
+        "olimorris/onedarkpro.nvim",
+        priority = 1000,
         lazy = false,
-        priority = 100,
-        name = "catppuccin",
         init = function()
-            require("catppuccin").setup({
-                flavour = "mocha",
-                integrations = {
-                    mason = true,
-                    harpoon = true,
-                    which_key = true,
-                    telescope = {
-                        enabled = true,
-                        style = "nvchad",
-                    },
-                    dropbar = {
-                        enabled = true,
-                    },
-                },
-            })
-            require("catppuccin").load()
-        end
+            require("onedarkpro").setup({})
+            vim.cmd("colorscheme onedark_dark")
+        end,
     },
+    -- {
+    --     "catppuccin/nvim",
+    --     lazy = false,
+    --     priority = 100,
+    --     name = "catppuccin",
+    --     init = function()
+    --         require("catppuccin").setup({
+    --             flavour = "mocha",
+    --             integrations = {
+    --                 mason = true,
+    --                 harpoon = true,
+    --                 which_key = true,
+    --                 telescope = {
+    --                     enabled = true,
+    --                     style = "nvchad",
+    --                 },
+    --                 dropbar = {
+    --                     enabled = true,
+    --                 },
+    --             },
+    --         })
+    --         require("catppuccin").load()
+    --     end
+    -- },
     -- {
     --     "lunarvim/horizon.nvim",
     --     lazy = false,
