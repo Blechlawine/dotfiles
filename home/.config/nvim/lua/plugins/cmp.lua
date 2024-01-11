@@ -74,12 +74,12 @@ return {
                 end,
             },
             sources = {
-                { name = "npm",     keyword_length = 4 },
-                { name = "luasnip" },
-                { name = "nvim_lsp" },
-                { name = "crates" },
-                { name = "buffer" },
-                { name = "path" },
+                { name = "npm",      keyword_length = 3 },
+                { name = "luasnip",  keyword_length = 3 },
+                { name = "nvim_lsp", keyword_length = 3 },
+                { name = "crates",   keyword_length = 3 },
+                { name = "buffer",   keyword_length = 3 },
+                { name = "path",     keyword_length = 3 },
             },
             mapping = {
                 ["<C-Space>"] = cmp.mapping.complete(),
