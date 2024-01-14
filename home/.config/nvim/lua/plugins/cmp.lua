@@ -11,11 +11,12 @@ return {
                 require("luasnip").config.set_config(opts)
 
                 -- vscode format
+                -- load snippets from plugins in vscode style
                 require("luasnip.loaders.from_vscode").lazy_load()
+                -- load custom snippets
                 require("luasnip.loaders.from_vscode").lazy_load({
                     paths = {
-                        "~/AppData/Roaming/Code/User/snippets",
-                        "~/.config/Code/User/snippets",
+                        "~/.config/nvim/snippets/vscode",
                     }
                 })
 

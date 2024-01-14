@@ -1,0 +1,23 @@
+{
+	"name": "my-custom-snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": ["vue", "typescript"],
+				"path": "./vue.code-snippets"
+			},
+			{
+				"language": ["tsx", "jsx", "javascript", "typescript"],
+				"path": "./solid.code-snippets"
+			},
+			{
+				"language": ["svelte"],
+				"path": "./svelte.code-snippets"
+			},
+			{
+				"language": ["tsx", "jsx", "javascript", "typescript"],
+				"path": "./react.code-snippets"
+			}
+		]
+	}
+}
