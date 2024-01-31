@@ -16,6 +16,7 @@ opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
 opt.cursorline = true
+opt.colorcolumn = "100"
 
 -- line-numbers
 opt.number = true
