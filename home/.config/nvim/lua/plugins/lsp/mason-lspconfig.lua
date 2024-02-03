@@ -109,6 +109,56 @@ return {
                     },
                 })
             end,
+            tailwindcss = function()
+                require("lspconfig").tailwindcss.setup({
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                    filetypes = {
+                        "html",
+                        "css",
+                        "scss",
+                        "javascript",
+                        "typescript",
+                        "typescriptreact",
+                        "javascriptreact",
+                        "astro",
+                        "svelte",
+                        "vue",
+                        "rust",
+                    },
+                    settings = {
+                        tailwindCSS = {
+                            classAttributes = {
+                                "class",
+                                "className",
+                                "classList",
+                                "ngClass",
+                                ":class",
+                            },
+                            emmetCompletions = true,
+                            experimental = {
+                                classRegex = {
+                                    [[class=[\"']([^"]*)]],
+                                    [[class: ?[\"']([^"]*)]],
+                                    [[:class=[\"']([^"]*)]],
+
+                                    -- [[class= "([^"]*)]],
+                                    -- [[class: "([^"]*)]],
+                                    -- '~H""".*class="([^"]*)".*"""',
+                                    [=["view!\\[\"([^\\]]+)\"\\]"]=],
+                                    'view!\\["([^\\]]+)"\\]',
+                                    -- [[class="([^"]*)]],
+                                    -- 'class=\\s+"([^"]*)',
+                                },
+                            },
+                        },
+                        includeLanguages = {
+                            rust = "html",
+                            ["*.rs"] = "html",
+                        },
+                    },
+                })
+            end,
         })
     end,
     opts = {
