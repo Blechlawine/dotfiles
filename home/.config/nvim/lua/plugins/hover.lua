@@ -2,6 +2,7 @@ local util = vim.lsp.util
 
 local ___ = '\n─────────────────────────────────────────────────────────────────────────────\n'
 
+-- From https://github.com/SichangHe/.config/blob/e7baf000ac6042d0a3ddf767b68f0b71e6d14d3d/nvim/lua/hovering.lua
 local LSPWithDiagSource = {
     name = 'LSP',
     priority = 1000,
