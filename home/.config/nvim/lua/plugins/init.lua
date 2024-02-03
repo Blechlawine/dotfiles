@@ -129,6 +129,7 @@ local plugins = {
     require("plugins.mason"),
     require("plugins.lsp.mason-lspconfig"),
     require("plugins.lsp.lspconfig"),
+    require("plugins.hover"),
 
     -- show crate version in cargo.toml
     {
