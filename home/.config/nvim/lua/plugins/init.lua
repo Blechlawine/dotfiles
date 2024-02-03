@@ -42,7 +42,8 @@ local plugins = {
                     cursorline = true,
                 },
                 colors = {
-                    purple = "#A656AC"
+                    purple = "#A656AC",
+                    float_bg = "#0e0e0e",
                 },
             })
             vim.cmd("colorscheme onedark_dark")
