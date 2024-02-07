@@ -159,6 +159,17 @@ return {
                     },
                 })
             end,
+            htmx = function()
+                require("lspconfig").htmx.setup({
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                    filetypes = {
+                        "html",
+                        "hbs",
+                        "rust",
+                    },
+                })
+            end
         })
     end,
     opts = {
@@ -180,6 +191,7 @@ return {
             "templ",
             "gopls",
             "taplo",
+            "htmx",
         },
     },
 }
