@@ -79,6 +79,7 @@ return {
                         "typescriptreact",
                         "svelte",
                         "rust",
+                        "templ",
                     },
                 })
             end,
@@ -125,6 +126,7 @@ return {
                         "svelte",
                         "vue",
                         "rust",
+                        "templ",
                     },
                     settings = {
                         tailwindCSS = {
@@ -138,10 +140,11 @@ return {
                             emmetCompletions = true,
                             experimental = {
                                 classRegex = {
-                                    [[class=[\"']([^"]*)]],
-                                    [[class: ?[\"']([^"]*)]],
-                                    [[:class=[\"']([^"]*)]],
+                                    [[class="([^"]*)]],
+                                    [[class: ?"([^"]*)]],
+                                    [[:class="([^"]*)]],
 
+                                    [["([^"]*)]],
                                     -- [[class= "([^"]*)]],
                                     -- [[class: "([^"]*)]],
                                     -- '~H""".*class="([^"]*)".*"""',
@@ -155,6 +158,8 @@ return {
                         includeLanguages = {
                             rust = "html",
                             ["*.rs"] = "html",
+                            templ = "html",
+                            ["*.templ"] = "html",
                         },
                     },
                 })
