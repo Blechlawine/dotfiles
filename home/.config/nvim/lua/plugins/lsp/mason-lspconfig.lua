@@ -172,6 +172,7 @@ return {
                         "html",
                         "hbs",
                         "rust",
+                        "templ",
                     },
                 })
             end
