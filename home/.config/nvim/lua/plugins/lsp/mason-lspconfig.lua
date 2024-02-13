@@ -171,7 +171,7 @@ return {
                     filetypes = {
                         "html",
                         "hbs",
-                        "rust",
+                        -- "rust", -- Disable in rust files because it breaks rust_analyzer hover
                         "templ",
                     },
                 })
