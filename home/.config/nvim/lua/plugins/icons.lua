@@ -24,6 +24,21 @@ return {
                 color = "#33A06F",
                 name = "Vue",
             },
+            ["js"] = {
+                icon = "",
+                color = "#f1e05a",
+                name = "Javascript",
+            },
+            ["mjs"] = {
+                icon = "",
+                color = "#f1e05a",
+                name = "Javascript",
+            },
+            ["cjs"] = {
+                icon = "",
+                color = "#f1e05a",
+                name = "Javascript",
+            },
         },
     },
     config = function(_, opts)
