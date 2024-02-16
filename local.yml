@@ -7,6 +7,12 @@
       tags:
         - shell
         - node
+    - name: Create temp folder
+      ansible.builtin.file:
+        state: directory
+        path: ./temp
+    - name: Create some folders to prevent stow conflicts
+      shell: mkdir -p ~/.local/bin && mkdir -p ~/.local/lib && mkdir -p ~/.local/share/icons && mkdir -p ~/.local/share/icons/hicolor
   tasks:
     - name: Install zsh, stow, git, curl, tmux, fzf
       become: true
@@ -28,9 +34,14 @@
       tags:
         - nvim
     - name: Change shell
-      shell: chsh -s `which zsh`
+      become: true
+      shell: chsh -s $(which zsh) $(whoami)
       tags:
         - shell
+    - name: Remove old version of oh-my-zsh
+      ansible.builtin.file:
+        state: absent
+        path: ~/.oh-my-zsh
     - name: Install Oh-my-zsh
       shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       tags:
@@ -39,8 +50,16 @@
       shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
       tags:
         - shell
-    - name: Remove old .zshrc and .bashrc
-      shell: rm ~/.zshrc ~/.bashrc
+    - name: Remove old .zshrc
+      ansible.builtin.file:
+        state: absent
+        path: ~/.zshrc
+      tags:
+        - shell
+    - name: Remove old .bashrc
+      ansible.builtin.file:
+        state: absent
+        path: ~/.bashrc
       tags:
         - shell
     - name: Stow dotfiles
@@ -58,12 +77,14 @@
       tags:
         - node
     - name: Install n for managing nodejs versions
+      become: true
       npm:
         name: n
         global: true
       tags:
         - node
     - name: N install lts
+      become: true
       shell: n lts
       tags:
         - node
@@ -103,11 +124,6 @@
       shell: ./temp/kitty
       tags:
         - kitty
-    - name: Create ~/.local/bin folder to avoid stow conflicts
-      shell: mkdir -p ~/.local/bin && mkdir -p ~/.local/lib
-      tags:
-        - kitty
-        - nvim
     - name: Stow kitty
       shell: stow . -t ..
       args:
