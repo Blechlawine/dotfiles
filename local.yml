@@ -14,7 +14,7 @@
     - name: Create some folders to prevent stow conflicts
       shell: mkdir -p ~/.local/bin && mkdir -p ~/.local/lib && mkdir -p ~/.local/share/icons && mkdir -p ~/.local/share/icons/hicolor
   tasks:
-    - name: Install zsh, stow, git, curl, tmux, fzf
+    - name: Install zsh, stow, git, curl, tmux, fzf, and some libraries
       become: true
       apt:
         pkg:
@@ -25,8 +25,15 @@
           - tmux
           - fzf
           - unzip
+          - libsecret-1-0
+          - libsecret-1-dev
+          - libglib2.0-dev
       tags:
         - shell
+    - name: Setup libsecret as git credential store
+      shell: |
+        sudo make --directory=/usr/share/doc/git/contrib/credential/libsecret
+        git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
     - name: Install build-essential
       apt:
         pkg:
