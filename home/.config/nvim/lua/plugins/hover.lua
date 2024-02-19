@@ -13,13 +13,14 @@ local LSPWithDiagSource = {
         local params = util.make_position_params()
         vim.lsp.buf_request_all(0, 'textDocument/hover', params, function(responses)
             local value = ''
-            for _, response in pairs(responses) do
+            for clientId, response in pairs(responses) do
                 local result = response.result
+                local client = vim.lsp.get_client_by_id(clientId)
                 if result and result.contents and result.contents.value then
                     if value ~= '' then
-                        value = value .. ___
+                        value = client.name .. ':\n' .. value .. ___
                     end
-                    value = value .. result.contents.value
+                    value = client.name .. ':\n' .. value .. result.contents.value
                 end
             end
 
