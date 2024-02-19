@@ -18,9 +18,9 @@ local LSPWithDiagSource = {
                 local client = vim.lsp.get_client_by_id(clientId)
                 if result and result.contents and result.contents.value then
                     if value ~= '' then
-                        value = client.name .. ':\n' .. value .. ___
+                        value = value .. ___
                     end
-                    value = client.name .. ':\n' .. value .. result.contents.value
+                    value = value .. client.name .. ':\n' .. result.contents.value
                 end
             end
 
