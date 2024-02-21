@@ -20,6 +20,7 @@ return {
             "rust",
             "go",
             "toml",
+            "vimdoc",
         },
 
         highlight = {
