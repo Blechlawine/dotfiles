@@ -41,6 +41,15 @@ return {
                     filetypes = volar_filetypes,
                     capabilities = capabilities,
                     on_attach = on_attach,
+                    settings = {
+                        volar = {
+                            typescript = {
+                                experimental = {
+                                    enableProjectDiagnostics = true,
+                                },
+                            },
+                        },
+                    },
                     on_new_config = function(new_config, new_root_dir)
                         new_config.init_options.typescript.tsdk = require("core.utils").get_typescript_server_path(
                             new_root_dir)
@@ -143,6 +152,8 @@ return {
                                     [[class="([^"]*)]],
                                     [[class: ?"([^"]*)]],
                                     [[:class="([^"]*)]],
+                                    -- [[:ui=".*'([^']*)]], -- doesn't work
+                                    -- ":ui=\".*'([^']+).*", -- doesn't work
 
                                     [["([^"]*)]],
                                     -- [[class= "([^"]*)]],
