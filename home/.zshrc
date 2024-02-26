@@ -121,7 +121,10 @@ alias ..='cd ..'
 alias vim='nvim'
 alias vi='nvim'
 
-alias search="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}' | xargs nvim"
+alias cat='bat'
+alias ls='exa'
+
+alias search="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}' | xargs nvim"
 
 alias clip="xclip -selection clipboard"
 

@@ -168,3 +168,11 @@
         chdir: ~/.local/nvim
       tags:
         - nvim
+    - name: Install bat
+      shell: cargo install bat
+      tags:
+        - rust
+    - name: Install exa
+      shell: cargo install exa
+      tags:
+        - rust
