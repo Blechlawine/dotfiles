@@ -8,7 +8,7 @@ cleanup() {
     exit 1
 }
 
-session=$(find ~/Dev ~/dotfiles -maxdepth 4 -type d -readable -writable -follow -name '.git' -exec dirname {} \; 2> /dev/null | fzf --preview "ls -lah {}"&)
+session=$(find ~/Dev ~/dotfiles -maxdepth 4 -type d -readable -writable -follow -name '.git' -exec dirname {} \; 2> /dev/null | fzf --preview "exa -lah {}"&)
 find_pid=$!
 
 wait $find_pid
