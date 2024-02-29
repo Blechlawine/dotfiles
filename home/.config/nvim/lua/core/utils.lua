@@ -2,7 +2,7 @@ local queue_which_key = function(mode, keybind, mapping_info)
     if Blechvim.which_key_queue[mode] == nil then
         Blechvim.which_key_queue[mode] = {}
     end
-    Blechvim.which_key_queue[mode][keybind] = mapping_info[2]
+    Blechvim.which_key_queue[mode][keybind] = mapping_info
 end
 
 return {
@@ -13,10 +13,11 @@ return {
                     for keybind, mapping_info in pairs(mode_mappings) do
                         if not mapping_info[1] or mapping_info.name then
                             -- its a which-key mapping, only queue it
+                            queue_which_key(mode, keybind, mapping_info)
                         else
                             vim.keymap.set(mode, keybind, mapping_info[1], mapping_info.opts)
+                            queue_which_key(mode, keybind, mapping_info[2])
                         end
-                        queue_which_key(mode, keybind, mapping_info)
                     end
                 end
             end
@@ -24,9 +25,9 @@ return {
             for section_name, section in pairs(mappings) do
                 set_section_map(section)
             end
-            -- if package.loaded["which-key"] then
-            --     require("core.utils").which_key_register()
-            -- end
+            if package.loaded["which-key"] then
+                require("core.utils").which_key_register()
+            end
         end)
     end,
 
@@ -34,8 +35,8 @@ return {
         if Blechvim.which_key_queue then
             local wk_avail, wk = pcall(require, "which-key")
             if wk_avail then
-                for mode, registration in pairs(Blechvim.which_key_queue) do
-                    wk.register(registration, { mode = mode })
+                for mode, mappings in pairs(Blechvim.which_key_queue) do
+                    wk.register(mappings, { mode = mode })
                 end
                 Blechvim.which_key_queue = nil
             end

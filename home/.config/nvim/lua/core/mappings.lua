@@ -1,9 +1,9 @@
 local sections = {
-    f = { desc = "󰍉 Find" },
-    t = { desc = " Terminal" },
-    g = { desc = "󰊢 Git" },
-    l = { desc = " LSP" },
-    s = { desc = "󱂬 Sessions" },
+    f = { "󰍉 Find" },
+    t = { " Terminal" },
+    g = { "󰊢 Git" },
+    l = { " LSP" },
+    s = { "󱂬 Sessions" },
 }
 
 return {
@@ -36,11 +36,11 @@ return {
         },
         n = {
             -- normal mode
-            ["<leader>f"] = { desc = "Telescope" },
-            -- ["<leader>t"] = sections.t,
-            -- ["<leader>g"] = sections.g,
-            ["<leader>l"] = { desc = "LSP" },
-            -- ["<leader>s"] = sections.s,
+            ["<leader>f"] = sections.f,
+            ["<leader>t"] = sections.t,
+            ["<leader>g"] = sections.g,
+            ["<leader>l"] = sections.l,
+            ["<leader>s"] = sections.s,
             -- move between windows
             ["<C-h>"] = { "<C-w>h", "window left" },
             ["<C-j>"] = { "<C-w>j", "window down" },
@@ -108,36 +108,62 @@ return {
         }
     },
 
-    telescope = {
-        i = {
-            ["<C-n>"] = {
+    -- TODO: validate if these keybindings here work, or if they have to be defined in the lsp attach function
+    lsp = {
+        n = {
+            ["<leader>ld"] = {
                 function()
-                    require("telescope.actions").cycle_history_next()
-                end
+                    vim.diagnostic.open_float()
+                end,
+                "Show diagnostic floating window",
             },
-            ["<C-p>"] = {
+            ["<leader>la"] = {
                 function()
-                    require("telescope.actions").cycle_history_prev()
-                end
+                    vim.lsp.buf.code_action()
+                end,
+                "Show code actions",
             },
-            ["<C-j>"] = {
+            ["<leader>lu"] = {
                 function()
-                    require("telescope.actions").move_selection_next()
-                end
+                    vim.lsp.buf.references()
+                end,
+                "Show references",
             },
-            ["<C-k>"] = {
+            ["<leader>lr"] = {
                 function()
-                    require("telescope.actions").move_selection_previous()
-                end
+                    vim.lsp.buf.rename()
+                end,
+                "Rename symbol",
+            },
+            ["gd"] = {
+                function()
+                    vim.lsp.buf.definition()
+                end,
+                "Go to definition",
+            },
+            ["<C-h>"] = {
+                function()
+                    vim.lsp.buf.signature_help()
+                end,
+                "Show signature help",
+            },
+            ["]d"] = {
+                function()
+                    vim.diagnostic.goto_next()
+                end,
+                "Go to next diagnostic",
+            },
+            ["[d"] = {
+                function()
+                    vim.diagnostic.goto_prev()
+                end,
+                "Go to previous diagnostic",
             },
         },
+    },
+
+    telescope = {
         n = {
-            ["q"] = {
-                function()
-                    require("telescope.actions").close()
-                end,
-                "Close"
-            },
             ["<C-p>"] = {
                 function()
                     require("telescope.builtin").git_files()
@@ -178,30 +204,27 @@ return {
         },
     },
 
-    lsp = {
-    },
-
     codeium = {
         i = {
             ["<A-[>"] = {
-                function()
-                    return vim.fn["codeium#CycleCompletions"](1)
-                end,
-                "Cycle completions forward",
-                opts = {
-                    expr = true,
-                }
-            },
-            ["<A-]>"] = {
                 function()
                     return vim.fn["codeium#CycleCompletions"](-1)
                 end,
                 "Cycle completions backward",
                 opts = {
                     expr = true,
+                }
+            },
+            ["<A-]>"] = {
+                function()
+                    return vim.fn["codeium#CycleCompletions"](1)
+                end,
+                "Cycle completions forward",
+                opts = {
+                    expr = true,
                 },
             },
-            ["<C-Tab>"] = {
+            ["<C-y>"] = {
                 function()
                     return vim.fn["codeium#Accept"]()
                 end,
@@ -215,7 +238,7 @@ return {
     harpoon = {
         n = {
             ["<leader>h"] = {
-                desc = "Harpoon",
+                name = "Harpoon",
             },
             ["<leader>hh"] = {
                 function()
