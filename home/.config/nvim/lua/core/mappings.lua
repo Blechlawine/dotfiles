@@ -61,12 +61,6 @@ return {
                 ":confirm bd<CR>",
                 "Close current buffer",
             },
-            ["<leader>lf"] = {
-                function()
-                    vim.lsp.buf.format({ async = true })
-                end,
-                "Format current buffer",
-            },
 
             -- moving lines up and down
             ["<C-Up>"] = { ":m.-2<cr>", "Move line up" },
@@ -141,7 +135,7 @@ return {
                 end,
                 "Go to definition",
             },
-            ["<C-h>"] = {
+            ["<leader>lh"] = {
                 function()
                     vim.lsp.buf.signature_help()
                 end,
@@ -158,6 +152,12 @@ return {
                     vim.diagnostic.goto_prev()
                 end,
                 "Go to previous diagnostic",
+            },
+            ["<leader>lf"] = {
+                function()
+                    vim.lsp.buf.format({ async = true })
+                end,
+                "Format current buffer",
             },
         },
     },
