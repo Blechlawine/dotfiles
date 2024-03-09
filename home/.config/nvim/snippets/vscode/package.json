@@ -17,7 +17,11 @@
 			{
 				"language": ["tsx", "jsx", "javascript", "typescript"],
 				"path": "./react.code-snippets"
-			}
+			},
+            {
+                "language": ["json"],
+                "path": "./general.code-snippets"
+            }
 		]
 	}
 }
