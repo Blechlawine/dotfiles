@@ -132,6 +132,9 @@ alias clip="xclip -selection clipboard"
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^a "tmux-session-finder\n"
 
+# Ctrl+\ to open yazi
+bindkey -s ^\\ "yazi\n"
+
 # Print a random animal with a random quote when opening a new terminal
 # cows=(apt bud-frogs bunny cheese cock cower default dragon-and-cow dragon duck elephant elephant-in-snake eyes flaming-sheep koala luke-koala milk moofasa moose pony-smaller sheep skeleton snowman stegosaurus three-eyes turtle tux unipony-smaller vader vader-koala www)
 # cow=${cows[$RANDOM % ${#cows[@]} ]}
