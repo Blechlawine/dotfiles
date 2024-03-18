@@ -43,8 +43,8 @@ return {
                 require("nvim-autopairs").setup(opts)
 
                 -- setup cmp for autopairs
-                local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-                require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+                -- local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+                -- require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
             end,
         },
         -- autocomplete sources
@@ -64,7 +64,41 @@ return {
             config = function(_, opts)
                 require("cmp-npm").setup(opts)
             end
-        }
+        },
+        {
+            "onsails/lspkind.nvim",
+            config = function()
+                require("lspkind").init({
+                    symbol_map = {
+                        Text = "",
+                        Method = "",
+                        Function = "",
+                        Constructor = "",
+                        Field = "",
+                        Variable = "",
+                        Class = "",
+                        Interface = "",
+                        Module = "",
+                        Property = "",
+                        Unit = "",
+                        Value = "",
+                        Enum = "",
+                        Keyword = "",
+                        Snippet = "",
+                        Color = "",
+                        File = "",
+                        Reference = "",
+                        Folder = "",
+                        EnumMember = "",
+                        Constant = "",
+                        Struct = "",
+                        Event = "",
+                        Operator = "",
+                        TypeParameter = "",
+                    },
+                })
+            end,
+        },
     },
     config = function()
         local cmp = require("cmp")
@@ -92,6 +126,27 @@ return {
                 -- select completion with arrow keys
                 ["<Down>"] = cmp.mapping.select_next_item(),
                 ["<Up>"] = cmp.mapping.select_prev_item(),
+                ["<S-Down>"] = cmp.mapping.scroll_docs(4),
+                ["<S-Up>"] = cmp.mapping.scroll_docs(-4),
+            },
+            window = {
+                completion = {
+                    winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+                    col_offset = -3,
+                    side_padding = 0,
+                },
+            },
+            formatting = {
+                expandable_indicator = false,
+                fields = { "kind", "abbr", "menu" },
+                format = function(entry, vim_item)
+                    local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                    local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                    kind.kind = " " .. (strings[1] or "") .. " "
+                    kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+                    return kind
+                end,
             },
         })
     end
