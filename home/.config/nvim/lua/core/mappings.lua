@@ -159,6 +159,12 @@ return {
                 end,
                 "Format current buffer",
             },
+            ["<leader>lD"] = {
+                function()
+                    require("trouble").toggle()
+                end,
+                "Toggle all diagnostics with trouble"
+            }
         },
     },
 

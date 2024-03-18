@@ -130,6 +130,13 @@ local plugins = {
     require("plugins.lsp.mason-lspconfig"),
     require("plugins.lsp.lspconfig"),
     require("plugins.hover"),
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("trouble").setup({})
+        end,
+    },
 
     -- show crate version in cargo.toml
     {
