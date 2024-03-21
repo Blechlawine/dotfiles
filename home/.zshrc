@@ -155,7 +155,7 @@ export PATH
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:/home/marc/.cargo/bin:$PATH"
 
 # fzf keybindings
 source /usr/share/doc/fzf/examples/key-bindings.zsh
