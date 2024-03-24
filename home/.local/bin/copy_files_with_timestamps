@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Check if two arguments are provided
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <source> <destination>"
+    exit 1
+fi
+
+source_dir=$1
+destination_dir=$2
+
+cp -rv --preserve=timestamps "$source_dir" "$destination_dir"
+
+./copy_files_with_timestamps.sh "$source_dir" "$destination_dir"
