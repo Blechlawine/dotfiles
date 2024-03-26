@@ -164,3 +164,5 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 # bun completions
 [ -s "/home/marc/.bun/_bun" ] && source "/home/marc/.bun/_bun"
+
+export EDITOR="nvim"
