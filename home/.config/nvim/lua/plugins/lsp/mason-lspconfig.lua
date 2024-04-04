@@ -89,6 +89,7 @@ return {
                         "svelte",
                         "rust",
                         "templ",
+                        "astro",
                     },
                 })
             end,
