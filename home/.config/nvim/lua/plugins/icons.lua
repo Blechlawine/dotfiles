@@ -17,10 +17,15 @@ return {
                 color = "#328eef",
                 name = "DockerIgnore",
             },
+            ["robots.txt"] = {
+                icon = "󰚩",
+                color = "#f1e05a",
+                name = "Robots",
+            }
         },
         override_by_extension = {
             ["vue"] = {
-                icon = "﵂",
+                icon = "󰡄",
                 color = "#33A06F",
                 name = "Vue",
             },
