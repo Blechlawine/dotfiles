@@ -1,14 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    init = function()
-        require("core.utils").lazy_load_plugin("nvim-treesitter")
-    end,
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
     opts = {
         ensure_installed = {
             "bash",
-            "lua",
             "html",
             "vue",
             "svelte",
@@ -20,14 +16,17 @@ return {
             "rust",
             "go",
             "toml",
+            "lua",
+            "luadoc",
+            "markdown",
+            "vim",
             "vimdoc",
         },
-
+        auto_install = true,
         highlight = {
             enable = true,
             use_languagetree = true,
         },
-
         indent = { enable = true },
     },
     config = function(_, opts)

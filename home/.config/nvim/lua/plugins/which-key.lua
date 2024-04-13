@@ -1,13 +1,9 @@
 return {
     "folke/which-key.nvim",
-    keys = { "<leader>", '"', "'", "`", "c", "v" },
+    event = "VeryLazy",
     init = function()
-        vim.o.timeoutlen = 0
         vim.o.timeout = true
+        vim.o.timeoutlen = 0
     end,
     opts = {},
-    config = function(_, opts)
-        require("which-key").setup(opts)
-        require("core.utils").which_key_register()
-    end,
 }

@@ -30,7 +30,7 @@ return {
             colors = {
                 purple = "#A656AC",
                 float_bg = color.lighten("bg", 8, "onedark_dark"),
-                float_select = color.lighten("bg", 16, "onedark_dark"),
+                float_select = color.lighten("bg", 24, "onedark_dark"),
             },
             highlights = {
                 NormalFloat = {
@@ -85,3 +85,52 @@ return {
         vim.cmd("colorscheme onedark_dark")
     end,
 }
+-- Alternative themes
+-- {
+--     "catppuccin/nvim",
+--     lazy = false,
+--     priority = 100,
+--     name = "catppuccin",
+--     init = function()
+--         require("catppuccin").setup({
+--             flavour = "mocha",
+--             integrations = {
+--                 mason = true,
+--                 harpoon = true,
+--                 which_key = true,
+--                 telescope = {
+--                     enabled = true,
+--                     style = "nvchad",
+--                 },
+--                 dropbar = {
+--                     enabled = true,
+--                 },
+--             },
+--         })
+--         require("catppuccin").load()
+--     end
+-- },
+-- {
+--     "lunarvim/horizon.nvim",
+--     lazy = false,
+--     init = function()
+--         require("horizon").setup({})
+--     end
+-- },
+-- {
+--     "navarasu/onedark.nvim",
+--     lazy = false,
+--     init = function()
+--         require("onedark").load()
+--     end
+-- },
+-- {
+--     "folke/tokyonight.nvim",
+--     lazy = false,
+--     init = function()
+--         require("tokyonight").setup({
+--             style = "night"
+--         })
+--         require("tokyonight").load()
+--     end
+-- },

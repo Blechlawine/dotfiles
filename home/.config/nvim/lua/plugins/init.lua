@@ -1,57 +1,13 @@
-local plugins = {
+return {
     "nvim-lua/plenary.nvim",
-    -- {
-    --     "navarasu/onedark.nvim",
-    --     lazy = false,
-    --     init = function()
-    --         require("onedark").load()
-    --     end
-    -- },
-    -- {
-    --     "folke/tokyonight.nvim",
-    --     lazy = false,
-    --     init = function()
-    --         require("tokyonight").setup({
-    --             style = "night"
-    --         })
-    --         require("tokyonight").load()
-    --     end
-    -- },
     require("plugins.theme"),
-    -- {
-    --     "catppuccin/nvim",
-    --     lazy = false,
-    --     priority = 100,
-    --     name = "catppuccin",
-    --     init = function()
-    --         require("catppuccin").setup({
-    --             flavour = "mocha",
-    --             integrations = {
-    --                 mason = true,
-    --                 harpoon = true,
-    --                 which_key = true,
-    --                 telescope = {
-    --                     enabled = true,
-    --                     style = "nvchad",
-    --                 },
-    --                 dropbar = {
-    --                     enabled = true,
-    --                 },
-    --             },
-    --         })
-    --         require("catppuccin").load()
-    --     end
-    -- },
-    -- {
-    --     "lunarvim/horizon.nvim",
-    --     lazy = false,
-    --     init = function()
-    --         require("horizon").setup({})
-    --     end
-    -- },
     {
         "rcarriga/nvim-notify",
         lazy = false,
+        opts = {
+            max_width = 90,
+            max_height = 20,
+        },
         init = function()
             vim.notify = require("notify")
         end
@@ -67,20 +23,20 @@ local plugins = {
     },
 
     -- For highlighting colors like #FF0000
-    {
-        "NvChad/nvim-colorizer.lua",
-        init = function()
-            require("core.utils").lazy_load_plugin("nvim-colorizer.lua")
-        end,
-        config = function(_, opts)
-            require("colorizer").setup(opts)
+    -- {
+    --     "NvChad/nvim-colorizer.lua",
+    --     init = function()
+    --         require("core.utils").lazy_load_plugin("nvim-colorizer.lua")
+    --     end,
+    --     config = function(_, opts)
+    --         require("colorizer").setup(opts)
 
-            -- execute colorizer as soon as possible
-            vim.defer_fn(function()
-                require("colorizer").attach_to_buffer(0)
-            end, 0)
-        end,
-    },
+    --         -- execute colorizer as soon as possible
+    --         vim.defer_fn(function()
+    --             require("colorizer").attach_to_buffer(0)
+    --         end, 0)
+    --     end,
+    -- },
     require("plugins.icons"),
     -- blankline for indent-guides
     require("plugins.blankline"),
@@ -96,8 +52,7 @@ local plugins = {
 
     -- lsp
     require("plugins.mason"),
-    require("plugins.lsp.mason-lspconfig"),
-    require("plugins.lsp.lspconfig"),
+    require("plugins.lspconfig"),
     require("plugins.hover"),
     {
         "folke/trouble.nvim",
@@ -155,6 +110,47 @@ local plugins = {
         end,
     },
 
+    -- Collection of small independent plugins/modules
+    {
+        "echasnovski/mini.nvim",
+        version = false,
+        lazy = false,
+        config = function()
+            -- Better Around/Inside textobjects
+            --
+            -- Examples:
+            --  - va)  - [V]isually select [A]round [)]paren
+            --  - yinq - [Y]ank [I]nside [N]ext [']quote
+            --  - ci'  - [C]hange [I]nside [']quote
+            require("mini.ai").setup({ n_lines = 500 })
+
+            -- Add/delete/replace surroundings (brackets, quotes, etc.)
+            --
+            -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+            -- - sd'   - [S]urround [D]elete [']quotes
+            -- - sr)'  - [S]urround [R]eplace [)] [']
+            require("mini.surround").setup({})
+
+            local hipatterns = require("mini.hipatterns")
+            hipatterns.setup({
+                highlighters = {
+                    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+                    fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+                    hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+                    todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+                    note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+
+                    -- Highlight hex color strings (`#rrggbb`) using that color
+                    hex_color = hipatterns.gen_highlighter.hex_color(),
+                },
+            })
+
+            -- ... and there is more!
+            --  Check out: https://github.com/echasnovski/mini.nvim
+        end,
+    },
+
+    -- GIT
     {
         "tpope/vim-fugitive",
         cmd = {
@@ -162,6 +158,13 @@ local plugins = {
             "Git"
         },
     },
+    -- Adds git related signs to the gutter, as well as utilities for managing changes
+    {
+        'lewis6991/gitsigns.nvim',
+        event = "BufEnter",
+        opts = {},
+    },
+
     -- For TSX syntax highlighting
     {
         "peitalin/vim-jsx-typescript",
@@ -171,12 +174,11 @@ local plugins = {
         end,
     },
 
-    -- {
-    --     "numToStr/Comment.nvim",
-    --     config = function(_, opts)
-    --         require("Comment").setup(opts)
-    --     end,
-    -- },
+    {
+        "numToStr/Comment.nvim",
+        lazy = false,
+        opts = {},
+    },
 
     -- autocompletion
     require("plugins.cmp"),
@@ -207,5 +209,3 @@ local plugins = {
         end
     },
 }
-
-require("lazy").setup(plugins, require("plugins.config.lazy"))
