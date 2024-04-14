@@ -179,17 +179,15 @@ return {
     require("plugins.wilder"),
 
     require("plugins.lualine"),
-    --require("plugins.bufferline"),
-    --    {
-    --        "Bekaboo/dropbar.nvim",
-    --        lazy = false,
-    --        dependencies = {
-    --            "nvim-telescope/telescope-fzf-native.nvim",
-    --        },
-    --        config = function(_, opts)
-    --            require("dropbar").setup(opts)
-    --        end
-    --    },
+    -- require("plugins.bufferline"),
+    -- TODO: dropbar currently only supports neovim nighty, 0.10.0 or later, implement when we update
+    -- {
+    --     "Bekaboo/dropbar.nvim",
+    --     dependencies = {
+    --         "nvim-telescope/telescope-fzf-native.nvim",
+    --     },
+    --     opts = {},
+    -- },
 
     -- AI code completion
     {
