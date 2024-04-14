@@ -6,8 +6,15 @@ return {
     },
     opts = {
         options = {
-            -- TODO: fix catppuccin theme for lualine
             theme = "onedark_dark"
+        },
+        sections = {
+            lualine_c = {
+                {
+                    "filename",
+                    path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+                }
+            },
         },
     },
     config = function(_, opts)

@@ -179,7 +179,7 @@ return {
     require("plugins.wilder"),
 
     require("plugins.lualine"),
-    require("plugins.bufferline"),
+    --require("plugins.bufferline"),
     --    {
     --        "Bekaboo/dropbar.nvim",
     --        lazy = false,

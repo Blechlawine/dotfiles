@@ -48,11 +48,12 @@ vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>", { desc =
 
 ---BUFFER MANAGEMENT-------------------------------------------------------------------------------------------------------------
 -- close current buffer
-vim.keymap.set("n", "<leader>c", ":confirm bp|bd #<CR>", { desc = "Close current buffer" })
-vim.keymap.set("n", "<C-q>", "<C-w>q", { desc = "Close current buffer" })
+vim.keymap.set("n", "<leader>c", ":confirm bd<CR>", { desc = "Close current buffer" })
+--vim.keymap.set("n", "<C-q>", "<C-w>q", { desc = "Close current window" })
 -- switching between open buffers
-vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
+-- Replaced with harpoon further down
+--vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
+--vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 
 ---LSP---------------------------------------------------------------------------------------------------------------------------
 vim.keymap.set("n", "<leader>l", " LSP")
@@ -99,11 +100,11 @@ vim.keymap.set("n", "<leader>h", "Harpoon")
 
 vim.keymap.set("n", "<leader>hh", function() require("harpoon.ui").toggle_quick_menu() end,
     { desc = "Toggle harpoon quick menu" })
-vim.keymap.set("n", "<leader>ha", function() require("harpoon.mark").add_file() end,
+vim.keymap.set("n", "<C-a>", function() require("harpoon.mark").add_file() end,
     { desc = "Add current file to harpoon" })
-vim.keymap.set("n", "<leader>hu", function() require("harpoon.ui").nav_prev() end,
+vim.keymap.set("n", "H", function() require("harpoon.ui").nav_prev() end,
     { desc = "Navigate to previous file in harpoon" })
-vim.keymap.set("n", "<leader>hd", function() require("harpoon.ui").nav_next() end,
+vim.keymap.set("n", "L", function() require("harpoon.ui").nav_next() end,
     { desc = "Navigate to next file in harpoon" })
 
 ---VISUAL MODE-------------------------------------------------------------------------------------------------------------------
