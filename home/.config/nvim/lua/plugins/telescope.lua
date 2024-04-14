@@ -62,7 +62,8 @@ return {
             }
         })
         -- Enable telescope extensions if theyre installed (pcall kinda catches errors)
-        pcall(require('telescope').load_extension, 'fzf')
-        pcall(require('telescope').load_extension, 'ui-select')
+        pcall(require("telescope").load_extension, "fzf")
+        pcall(require("telescope").load_extension, "ui-select")
+        pcall(require("telescope").load_extension, "harpoon")
     end,
 }
