@@ -109,12 +109,12 @@ return {
                 end,
             },
             sources = {
-                { name = "npm",      keyword_length = 3 },
-                { name = "luasnip",  keyword_length = 3 },
-                { name = "nvim_lsp", keyword_length = 3 },
-                { name = "crates",   keyword_length = 3 },
-                { name = "buffer",   keyword_length = 3 },
-                { name = "path",     keyword_length = 3 },
+                { name = "nvim_lsp", keyword_length = 3, priority = 1000 },
+                { name = "path",     keyword_length = 3, priority = 500 },
+                { name = "npm",      keyword_length = 3, priority = 100 },
+                { name = "crates",   keyword_length = 3, priority = 100 },
+                { name = "luasnip",  keyword_length = 3, priority = 20 },
+                { name = "buffer",   keyword_length = 3, priority = 10 },
             },
             mapping = {
                 ["<C-Space>"] = cmp.mapping.complete(),
@@ -140,7 +140,10 @@ return {
                 expandable_indicator = false,
                 fields = { "kind", "abbr", "menu" },
                 format = function(entry, vim_item)
-                    local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                    local kind = require("lspkind").cmp_format({
+                        mode = "symbol_text",
+                        maxwidth = 50,
+                    })(entry, vim_item)
                     local strings = vim.split(kind.kind, "%s", { trimempty = true })
                     kind.kind = " " .. (strings[1] or "") .. " "
                     kind.menu = "    (" .. (strings[2] or "") .. ")"
