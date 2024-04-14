@@ -52,6 +52,14 @@ return {
     -- harpoon for quick navigation
     require("plugins.harpoon"),
 
+    {
+        "mbbill/undotree",
+        lazy = false,
+        config = function()
+            vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })
+        end,
+    },
+
     -- lsp
     require("plugins.mason"),
     require("plugins.lspconfig"),
