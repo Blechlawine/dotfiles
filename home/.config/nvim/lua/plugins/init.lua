@@ -21,6 +21,8 @@ return {
             require("neoconf").setup(opts)
         end
     },
+    -- which-key for keybindings, needs to run before creating mappings
+    require("plugins.which-key"),
 
     -- For highlighting colors like #FF0000
     -- {
@@ -154,7 +156,39 @@ return {
     {
         'lewis6991/gitsigns.nvim',
         event = "BufEnter",
-        opts = {},
+        opts = {
+            on_attach = function(bufnr)
+                local gitsigns = require('gitsigns')
+
+                local function map(mode, l, r, opts)
+                    opts = opts or {}
+                    opts.buffer = bufnr
+                    vim.keymap.set(mode, l, r, opts)
+                end
+
+                -- Navigation (jumping between hunks)
+                map("n", "]g", function()
+                    if vim.wo.diff then
+                        vim.cmd.normal({ "]g", bang = true })
+                    else
+                        gitsigns.nav_hunk("next")
+                    end
+                end, { desc = "Jump to next change" })
+
+                map("n", "[g", function()
+                    if vim.wo.diff then
+                        vim.cmd.normal({ "[g", bang = true })
+                    else
+                        gitsigns.nav_hunk("prev")
+                    end
+                end, { desc = "Jump to previous change" })
+
+                -- Actions
+                -- map("n", "<leader>gd", gitsigns.diffthis)
+                -- map("n", "<leader>gD", function() gitsigns.diffthis("~") end)
+                map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "Preview hunk" })
+            end
+        },
     },
 
     -- For TSX syntax highlighting
@@ -175,7 +209,6 @@ return {
     -- autocompletion
     require("plugins.cmp"),
 
-    require("plugins.which-key"),
     require("plugins.wilder"),
 
     require("plugins.lualine"),
