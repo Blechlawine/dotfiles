@@ -30,7 +30,7 @@ return {
             colors = {
                 purple = "#A656AC",
                 float_bg = color.lighten("bg", 8, "onedark_dark"),
-                float_select = color.lighten("bg", 24, "onedark_dark"),
+                float_select = color.lighten("bg", 16, "onedark_dark"),
             },
             highlights = {
                 NormalFloat = {
