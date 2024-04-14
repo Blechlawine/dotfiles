@@ -49,6 +49,7 @@ vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>", { desc =
 ---BUFFER MANAGEMENT-------------------------------------------------------------------------------------------------------------
 -- close current buffer
 vim.keymap.set("n", "<leader>c", ":confirm bp|bd #<CR>", { desc = "Close current buffer" })
+vim.keymap.set("n", "<C-q>", "<C-w>q", { desc = "Close current buffer" })
 -- switching between open buffers
 vim.keymap.set("n", "L", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
