@@ -100,7 +100,7 @@ vim.keymap.set("n", "<leader>h", "Harpoon")
 
 vim.keymap.set("n", "<leader>hh", function() require("harpoon.ui").toggle_quick_menu() end,
     { desc = "Toggle harpoon quick menu" })
-vim.keymap.set("n", "<C-a>", function() require("harpoon.mark").add_file() end,
+vim.keymap.set("n", "<C-Space>", function() require("harpoon.mark").add_file() end,
     { desc = "Add current file to harpoon" })
 vim.keymap.set("n", "H", function() require("harpoon.ui").nav_prev() end,
     { desc = "Navigate to previous file in harpoon" })
