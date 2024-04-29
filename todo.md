@@ -1,6 +1,4 @@
-# Neovim
-
 # ansible install playbook
-- Nerdfonts
-- exa, and alias ls to exa
-
+- Nerdfont Maple Mono
+- Cargo install bat fails because cargo is not on path
+- install lazygit

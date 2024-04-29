@@ -35,6 +35,7 @@
         sudo make --directory=/usr/share/doc/git/contrib/credential/libsecret
         git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
     - name: Install build-essential
+      become: true
       apt:
         pkg:
           - build-essential
