@@ -202,7 +202,6 @@ return {
                 },
             },
             volar = {},
-            gleam = {},
             svelte = {},
             biome = {},
             prismals = {},
