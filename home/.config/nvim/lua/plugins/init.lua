@@ -186,12 +186,12 @@ return {
     -- },
 
     -- AI code completion
-    {
-        "Exafunction/codeium.vim",
-        lazy = false,
-        config = function(_, _)
-            -- Disable default keybindings of codeium
-            vim.g.codeium_disable_bindings = 1
-        end
-    },
+    -- {
+    --     "Exafunction/codeium.vim",
+    --     lazy = false,
+    --     config = function(_, _)
+    --         -- Disable default keybindings of codeium
+    --         vim.g.codeium_disable_bindings = 1
+    --     end
+    -- },
 }
