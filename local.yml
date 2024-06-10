@@ -136,6 +136,9 @@
       shell: stow . -t ..
       args:
         chdir: ~/.local/kitty.app
+      tags:
+        - kitty
+        - stow
     - name: Download Go installer
       get_url:
         url: https://go.dev/dl/go1.21.1.linux-amd64.tar.gz
@@ -169,6 +172,7 @@
         chdir: ~/.local/nvim
       tags:
         - nvim
+        - stow
     - name: Install bat
       shell: cargo install bat
       tags:
