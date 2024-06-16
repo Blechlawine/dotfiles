@@ -28,7 +28,8 @@ return {
                 file_ignore_patterns = {
                     ".git",
                     "node_modules",
-                    "target"
+                    "target",
+                    ".cargo/registry"
                 },
                 path_display = { "truncate" },
                 sorting_strategy = "ascending",
