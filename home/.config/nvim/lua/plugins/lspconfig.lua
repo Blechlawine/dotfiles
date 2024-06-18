@@ -89,6 +89,9 @@ return {
                         check = {
                             command = "clippy",
                         },
+                        rustfmt = {
+                            overrideCommand = { "leptosfmt", "--stdin", "--rustfmt" }
+                        }
                     },
                 },
             },
