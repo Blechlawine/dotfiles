@@ -90,7 +90,7 @@ return {
                             command = "clippy",
                         },
                         rustfmt = {
-                            overrideCommand = { "leptosfmt", "--stdin", "--rustfmt" }
+                            -- overrideCommand = { "leptosfmt", "--config-file", "~/.config/nvim/leptosfmt.toml", "--stdin", "--rustfmt" } -- this doesnt work yet for some reason (it only works without the config file)
                         }
                     },
                 },
