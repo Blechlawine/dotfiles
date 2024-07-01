@@ -177,6 +177,10 @@
       shell: cargo install bat
       tags:
         - rust
+    - name: Install starship
+      shell: cargo install starship --locked
+      tags:
+        - shell
     - name: Install exa
       shell: cargo install exa
       tags:

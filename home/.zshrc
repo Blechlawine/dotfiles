@@ -20,7 +20,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+# I don't use this, because i use the starship prompt
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -150,9 +151,6 @@ export GOPATH=$HOME/go
 PATH=$PATH:$HOME/.local/bin:/usr/local/go/bin:$GOPATH/bin
 export PATH
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:/home/marc/.cargo/bin:$PATH"
@@ -166,3 +164,6 @@ source /usr/share/doc/fzf/examples/completion.zsh
 [ -s "/home/marc/.bun/_bun" ] && source "/home/marc/.bun/_bun"
 
 export EDITOR="nvim"
+
+# starship prompt init
+eval "$(starship init zsh)"
