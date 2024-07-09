@@ -18,6 +18,19 @@ vim.keymap.set("n", "<leader>t", " Terminal")
 vim.keymap.set("n", "<leader>g", "󰊢 Git")
 vim.keymap.set("n", "<leader>s", "󱂬 Sessions")
 
+-- Easy paste for system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- replace selection with yank register, without copying replaced text
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
+-- golang if err != nil etc.
+vim.keymap.set(
+    "n",
+    "<leader>ee",
+    "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
+)
+
 -- move between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "window left" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "window down" })
