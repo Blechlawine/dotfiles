@@ -31,6 +31,9 @@ vim.keymap.set(
     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
+-- chmod current file to executable
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
 -- move between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "window left" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "window down" })
