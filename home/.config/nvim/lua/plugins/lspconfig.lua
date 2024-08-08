@@ -155,6 +155,8 @@ return {
                     "handlebars",
                     "scss",
                     "typescriptreact",
+                    "javascriptreact",
+                    "javascript",
                     "svelte",
                     "rust",
                     "templ",
