@@ -163,7 +163,7 @@ return {
                     "astro",
                 },
             },
-            tsserver = {
+            ts_ls = {
                 settings = {
                     tsserver = {
                         typescript = {
