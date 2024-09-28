@@ -21,7 +21,11 @@ return {
                 icon = "󰚩",
                 color = "#f1e05a",
                 name = "Robots",
-            }
+            },
+            ["schema.prisma"] = {
+                icon = "",
+                name = "PrismaSchema",
+            },
         },
         override_by_extension = {
             ["vue"] = {
@@ -44,6 +48,18 @@ return {
                 color = "#f1e05a",
                 name = "Javascript",
             },
+            ["svg"] = {
+                icon = "󰜡",
+                name = "svg",
+            },
+            ["toml"] = {
+                icon = "",
+                name = "toml",
+            },
+            ["astro"] = {
+                icon = "", -- If this:  shows the astro rocket, use it, otherwise a fallback rocket
+                name = "Astro",
+            }
         },
     },
     config = function(_, opts)
