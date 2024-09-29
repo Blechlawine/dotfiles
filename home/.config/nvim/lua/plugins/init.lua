@@ -67,8 +67,21 @@ return {
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        cmd = "Trouble",
         config = function()
-            require("trouble").setup({})
+            require("trouble").setup({
+                modes = {
+                    with_preview = {
+                        mode = "diagnostics",
+                        preview = {
+                            type = "split",
+                            relative = "win",
+                            position = "right",
+                            size = 0.3,
+                        },
+                    },
+                },
+            })
         end,
     },
 

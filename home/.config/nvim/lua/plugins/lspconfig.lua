@@ -51,7 +51,11 @@ return {
                 map("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
                 map("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
                 map("<leader>lf", vim.lsp.buf.format, "Format buffer")
-                map("<leader>lD", require("trouble").toggle, "Toggle all diagnostics with trouble")
+                map(
+                    "<leader>lD",
+                    "<cmd>Trouble with_preview toggle focus=false<cr>",
+                    "Toggle all diagnostics with trouble"
+                )
 
                 -- The following two autocommands are used to highlight references of the
                 -- word under your cursor when your cursor rests there for a little while.
