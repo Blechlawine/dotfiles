@@ -128,10 +128,12 @@
         force: true
       tags:
         - kitty
+        - update-kitty
     - name: Install kitty terminal
       shell: ./temp/kitty
       tags:
         - kitty
+        - update-kitty
     - name: Stow kitty
       shell: stow . -t ..
       args:
