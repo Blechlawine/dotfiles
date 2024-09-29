@@ -11,7 +11,7 @@ return {
             build = "make"
         },
         -- use telescope for some native nvim windows like code-actions
-        { 'nvim-telescope/telescope-ui-select.nvim' },
+        -- { 'nvim-telescope/telescope-ui-select.nvim' },
     },
     opts = {},
     config = function()
