@@ -57,7 +57,8 @@ return {
                 name = "toml",
             },
             ["astro"] = {
-                icon = "", -- If this:  shows the astro rocket, use it, otherwise a fallback rocket
+                -- icon = "", -- If this:  shows the astro rocket, use it, otherwise a fallback rocket (this icon doesn't work with comic code)
+                icon = "",
                 name = "Astro",
             }
         },

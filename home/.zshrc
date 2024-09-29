@@ -83,7 +83,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm)
+plugins=(git nvm bun docker golang rust ssh tmux z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -127,10 +127,13 @@ alias ls='exa'
 
 alias search="fzf --preview 'cat --color=always --style=numbers --line-range=:500 {}' | xargs nvim"
 
+alias kssh='kitten ssh'
+
 alias clip="xclip -selection clipboard"
 
 # Ctrl+f to open tmux sessionizer script
 bindkey -s ^f "tmux-sessionizer\n"
+# Ctrl+a to open tmux session finder script
 bindkey -s ^a "tmux-session-finder\n"
 
 # Ctrl+\ to open yazi
