@@ -16,7 +16,7 @@ end, { desc = "Expand Emmet completion" })
 ---NORMAL MODE-------------------------------------------------------------------------------------------------------------------
 vim.keymap.set("n", "<leader>t", " Terminal")
 vim.keymap.set("n", "<leader>g", "󰊢 Git")
-vim.keymap.set("n", "<leader>s", "󱂬 Sessions")
+vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 
 -- Easy paste for system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
