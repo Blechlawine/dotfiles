@@ -145,6 +145,7 @@ return {
             -- - sd'   - [S]urround [D]elete [']quotes
             -- - sr)'  - [S]urround [R]eplace [)] [']
             require("mini.surround").setup()
+            require("mini.bracketed").setup()
 
             local hipatterns = require("mini.hipatterns")
             hipatterns.setup({
