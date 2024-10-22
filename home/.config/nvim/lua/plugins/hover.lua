@@ -46,22 +46,24 @@ local LSPWithDiagSource = {
     end,
 }
 
+--- @type LazySpec
 return {
     "lewis6991/hover.nvim",
     event = "BufRead",
-    config = function()
-        require("hover").setup({
-            init = function()
-                -- Require providers
-                -- require("hover.providers.lsp") -- is replaced with custom provider: LSPWithDiagSource
-                require("hover").register(LSPWithDiagSource)
-                -- require('hover.providers.gh')
-                -- require('hover.providers.gh_user')
-                -- require('hover.providers.jira')
-                require('hover.providers.man')
-                -- require('hover.providers.dictionary')
-            end,
-        })
+    opts = {
+        init = function()
+            -- Require providers
+            -- require("hover.providers.lsp") -- is replaced with custom provider: LSPWithDiagSource
+            require("hover").register(LSPWithDiagSource)
+            -- require('hover.providers.gh')
+            -- require('hover.providers.gh_user')
+            -- require('hover.providers.jira')
+            require('hover.providers.man')
+            -- require('hover.providers.dictionary')
+        end,
+    },
+    config = function(_, opts)
+        require("hover").setup(opts)
         vim.keymap.set("n", "K", function()
             local hover_win = vim.b.hover_preview
             if hover_win and vim.api.nvim_win_is_valid(hover_win) then

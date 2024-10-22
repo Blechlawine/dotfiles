@@ -1,3 +1,4 @@
+--- @type LazySpec
 return {
     "nvim-lualine/lualine.nvim",
     lazy = false,
@@ -17,7 +18,4 @@ return {
             },
         },
     },
-    config = function(_, opts)
-        require("lualine").setup(opts)
-    end
 }

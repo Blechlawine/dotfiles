@@ -1,3 +1,4 @@
+--- @type LazySpec
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -39,13 +40,13 @@ return {
                 fast_wrap = {},
                 disable_filetype = { "TelescopePrompt", "vim" },
             },
-            config = function(_, opts)
-                require("nvim-autopairs").setup(opts)
+            -- config = function(_, opts)
+            --     require("nvim-autopairs").setup(opts)
 
-                -- setup cmp for autopairs
-                -- local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-                -- require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-            end,
+            -- setup cmp for autopairs
+            -- local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+            -- require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            -- end,
         },
         -- autocomplete sources
         {
@@ -61,43 +62,38 @@ return {
                 "nvim-lua/plenary.nvim",
             },
             ft = "json",
-            config = function(_, opts)
-                require("cmp-npm").setup(opts)
-            end
         },
         {
             "onsails/lspkind.nvim",
-            config = function()
-                require("lspkind").init({
-                    symbol_map = {
-                        Text = "",
-                        Method = "",
-                        Function = "󰊕",
-                        Constructor = "",
-                        Field = "",
-                        Variable = "",
-                        Class = "",
-                        Interface = "",
-                        Module = "",
-                        Property = "",
-                        Unit = "",
-                        Value = "",
-                        Enum = "",
-                        Keyword = "",
-                        Snippet = "",
-                        Color = "",
-                        File = "",
-                        Reference = "",
-                        Folder = "󰉋",
-                        EnumMember = "",
-                        Constant = "",
-                        Struct = "",
-                        Event = "",
-                        Operator = "",
-                        TypeParameter = "",
-                    },
-                })
-            end,
+            opts = {
+                symbol_map = {
+                    Text = "",
+                    Method = "",
+                    Function = "󰊕",
+                    Constructor = "",
+                    Field = "",
+                    Variable = "",
+                    Class = "",
+                    Interface = "",
+                    Module = "",
+                    Property = "",
+                    Unit = "",
+                    Value = "",
+                    Enum = "",
+                    Keyword = "",
+                    Snippet = "",
+                    Color = "",
+                    File = "",
+                    Reference = "",
+                    Folder = "󰉋",
+                    EnumMember = "",
+                    Constant = "",
+                    Struct = "",
+                    Event = "",
+                    Operator = "",
+                    TypeParameter = "",
+                },
+            },
         },
     },
     config = function()

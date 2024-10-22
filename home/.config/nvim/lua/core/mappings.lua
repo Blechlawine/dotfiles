@@ -72,11 +72,11 @@ vim.keymap.set("n", "<leader>c", ":confirm bd<CR>", { desc = "Close current buff
 --vim.keymap.set("n", "H", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 
 ---LSP---------------------------------------------------------------------------------------------------------------------------
-vim.keymap.set("n", "<leader>l", " LSP")
+vim.keymap.set("n", "<leader>l", "", { desc = " LSP" })
 
 -- LSP mappings are defined in plugins/lspconfig.lua
 ---TELESCOPE---------------------------------------------------------------------------------------------------------------------
-vim.keymap.set("n", "<leader>f", "󰍉 Find")
+vim.keymap.set("n", "<leader>f", "", { desc = "󰍉 Find" })
 
 -- Find git files
 vim.keymap.set("n", "<C-p>", function() require("telescope.builtin").git_files() end, { desc = "Find git files" })
@@ -112,7 +112,7 @@ vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").resume
 --     { desc = "Accept completion", expr = true })
 
 ---HARPOON-----------------------------------------------------------------------------------------------------------------------
-vim.keymap.set("n", "<leader>h", "Harpoon")
+vim.keymap.set("n", "<leader>h", "", { desc = "Harpoon" })
 
 vim.keymap.set("n", "<leader>hh", function() require("harpoon.ui").toggle_quick_menu() end,
     { desc = "Toggle harpoon quick menu" })

@@ -1,3 +1,4 @@
+--- @type LazySpec[]
 return {
     "nvim-lua/plenary.nvim",
     require("plugins.theme"),
@@ -8,7 +9,7 @@ return {
             max_width = 90,
             max_height = 20,
         },
-        init = function()
+        init = function(_)
             vim.notify = require("notify")
         end
     },
@@ -17,9 +18,7 @@ return {
     {
         "folke/neoconf.nvim",
         lazy = false,
-        init = function(opts)
-            require("neoconf").setup(opts)
-        end
+        opts = {},
     },
     -- which-key for keybindings, needs to run before creating mappings
     require("plugins.which-key"),
@@ -55,7 +54,7 @@ return {
     {
         "mbbill/undotree",
         lazy = false,
-        config = function()
+        init = function()
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })
         end,
     },
@@ -68,21 +67,19 @@ return {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         cmd = "Trouble",
-        config = function()
-            require("trouble").setup({
-                modes = {
-                    with_preview = {
-                        mode = "diagnostics",
-                        preview = {
-                            type = "split",
-                            relative = "win",
-                            position = "right",
-                            size = 0.3,
-                        },
+        opts = {
+            modes = {
+                with_preview = {
+                    mode = "diagnostics",
+                    preview = {
+                        type = "split",
+                        relative = "win",
+                        position = "right",
+                        size = 0.3,
                     },
                 },
-            })
-        end,
+            },
+        },
     },
 
     -- show crate version in cargo.toml
@@ -93,15 +90,13 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim"
         },
-        config = function()
-            require("crates").setup({
-                src = {
-                    cmp = {
-                        enabled = true,
-                    },
+        opts = {
+            src = {
+                cmp = {
+                    enabled = true,
                 },
-            })
-        end,
+            },
+        },
     },
 
     -- For easy control over formatters
@@ -172,9 +167,7 @@ return {
     {
         "peitalin/vim-jsx-typescript",
         event = "BufRead .tsx", -- load on opening .tsx files
-        config = function(_, opts)
-            require("jsx-typescript").setup(opts)
-        end,
+        opts = {},
     },
 
     {
