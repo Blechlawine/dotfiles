@@ -17,6 +17,7 @@ return {
     -- neoconf for project specific configuration (this needs to run before lsp setups)
     {
         "folke/neoconf.nvim",
+        priority = 1000,
         lazy = false,
         opts = {},
     },
