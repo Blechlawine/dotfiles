@@ -14,25 +14,26 @@ vim.keymap.set("i", "<C-e>", function()
 end, { desc = "Expand Emmet completion" })
 
 ---NORMAL MODE-------------------------------------------------------------------------------------------------------------------
-vim.keymap.set("n", "<leader>t", " Terminal")
-vim.keymap.set("n", "<leader>g", "󰊢 Git")
+vim.keymap.set("n", "<leader>g", "", { desc = "󰊢 Git" })
 vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 
 -- Easy paste for system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to system clipboard" })
 -- replace selection with yank register, without copying replaced text
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without copying replaced text" })
 
+vim.keymap.set("n", "<leader>e", "", { desc = "Code snippets" })
 -- golang if err != nil etc.
 vim.keymap.set(
     "n",
     "<leader>ee",
-    "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
+    "oif err != nil {<CR>}<Esc>Oreturn err<Esc>",
+    { desc = "Golang error handler" }
 )
 
 -- chmod current file to executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
 
 -- move between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "window left" })
