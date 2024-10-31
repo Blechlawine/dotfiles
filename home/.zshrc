@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/marc/.zsh/completions:"* ]]; then export FPATH="/home/marc/.zsh/completions:$FPATH"; fi
 # Uncomment this to automatically launch tmux when opening a new terminal
 # if [ -z "$TMUX" ]; then
 #   tmux
@@ -168,5 +170,11 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 export EDITOR="nvim"
 
+. "$HOME/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
+
 # starship prompt init
 eval "$(starship init zsh)"
+
