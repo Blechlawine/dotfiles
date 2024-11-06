@@ -1,5 +1,5 @@
-require("core.config")   -- Apply config
-require("core.mappings") -- Load keymaps
+require("core.config") -- Apply config
+-- require("core.mappings") -- Load keymaps (this has been moved to plugins/which-key.lua)
 
 -- add binaries installed by mason.nvim to path
 vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin"
