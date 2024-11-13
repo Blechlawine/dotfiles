@@ -229,7 +229,9 @@ return {
                 },
             },
         }
+
         local ensure_installed = vim.tbl_keys(servers or {})
+        require('lspconfig').gleam.setup({})
         require("mason-lspconfig").setup({
             ensure_installed = ensure_installed,
             handlers = {
