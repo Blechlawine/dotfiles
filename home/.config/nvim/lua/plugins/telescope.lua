@@ -27,7 +27,8 @@ return {
                 ".git/",
                 "node_modules",
                 "target",
-                ".cargo/registry"
+                ".cargo/registry",
+                "CHANGELOG.md",
             },
             path_display = { "truncate" },
             sorting_strategy = "ascending",
