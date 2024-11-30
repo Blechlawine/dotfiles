@@ -167,6 +167,15 @@ return {
                     "templ",
                     "astro",
                 },
+                init_options = {
+                    jsx = {
+                        options = {
+                            ["markup.attributes"] = {
+                                class = "class",
+                            }
+                        }
+                    }
+                }
             },
             ts_ls = {
                 settings = {
