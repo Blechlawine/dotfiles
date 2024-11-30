@@ -100,58 +100,58 @@ return {
                     },
                 },
             },
-            tailwindcss = {
-                filetypes = {
-                    "html",
-                    "css",
-                    "scss",
-                    "javascript",
-                    "typescript",
-                    "typescriptreact",
-                    "javascriptreact",
-                    "astro",
-                    "svelte",
-                    "vue",
-                    "rust",
-                    "templ",
-                },
-                settings = {
-                    tailwindCSS = {
-                        classAttributes = {
-                            "class",
-                            "className",
-                            "classList",
-                            "ngClass",
-                            ":class",
-                        },
-                        emmetCompletions = true,
-                        experimental = {
-                            classRegex = {
-                                [[class="([^"]*)]],
-                                [[class: ?"([^"]*)]],
-                                [[:class="([^"]*)]],
-                                -- [[:ui=".*'([^']*)]], -- doesn't work
-                                -- ":ui=\".*'([^']+).*", -- doesn't work
-
-                                [["([^"]*)]],
-                                -- [[class= "([^"]*)]],
-                                -- [[class: "([^"]*)]],
-                                -- '~H""".*class="([^"]*)".*"""',
-                                [=["view!\\[\"([^\\]]+)\"\\]"]=],
-                                'view!\\["([^\\]]+)"\\]',
-                                -- [[class="([^"]*)]],
-                                -- 'class=\\s+"([^"]*)',
-                            },
-                        },
-                    },
-                    includeLanguages = {
-                        rust = "html",
-                        ["*.rs"] = "html",
-                        templ = "html",
-                        ["*.templ"] = "html",
-                    },
-                },
-            },
+            -- tailwindcss = {
+            --     filetypes = {
+            --         "html",
+            --         "css",
+            --         "scss",
+            --         "javascript",
+            --         "typescript",
+            --         "typescriptreact",
+            --         "javascriptreact",
+            --         "astro",
+            --         "svelte",
+            --         "vue",
+            --         "rust",
+            --         "templ",
+            --     },
+            --     settings = {
+            --         tailwindCSS = {
+            --             classAttributes = {
+            --                 "class",
+            --                 "className",
+            --                 "classList",
+            --                 "ngClass",
+            --                 ":class",
+            --             },
+            --             emmetCompletions = true,
+            --             experimental = {
+            --                 classRegex = {
+            --                     [[class="([^"]*)]],
+            --                     [[class: ?"([^"]*)]],
+            --                     [[:class="([^"]*)]],
+            --                     -- [[:ui=".*'([^']*)]], -- doesn't work
+            --                     -- ":ui=\".*'([^']+).*", -- doesn't work
+            --
+            --                     [["([^"]*)]],
+            --                     -- [[class= "([^"]*)]],
+            --                     -- [[class: "([^"]*)]],
+            --                     -- '~H""".*class="([^"]*)".*"""',
+            --                     [=["view!\\[\"([^\\]]+)\"\\]"]=],
+            --                     'view!\\["([^\\]]+)"\\]',
+            --                     -- [[class="([^"]*)]],
+            --                     -- 'class=\\s+"([^"]*)',
+            --                 },
+            --             },
+            --         },
+            --         includeLanguages = {
+            --             rust = "html",
+            --             ["*.rs"] = "html",
+            --             templ = "html",
+            --             ["*.templ"] = "html",
+            --         },
+            --     },
+            -- },
             emmet_ls = {
                 filetypes = {
                     "html",
