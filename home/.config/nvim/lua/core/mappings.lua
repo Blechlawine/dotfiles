@@ -90,9 +90,9 @@ return {
         { "<leader>f", desc = "󰍉 Find" },
 
         -- Find git files
-        { "<C-p>", function() require("telescope.builtin").git_files() end, desc = "Find git files" },
+        { "<C-p>", function() require("telescope.builtin").find_files() end, desc = "Find files" },
         -- Find files
-        { "<C-t>", function() require("telescope.builtin").find_files() end, desc = "Find files" },
+        { "<C-t>", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "Find project symbols" },
         -- Live grep
         { "<leader>fg", function() require("telescope.builtin").live_grep() end, desc = "Live grep" },
         -- Find buffers
