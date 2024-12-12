@@ -92,6 +92,7 @@ return {
                     Event = "",
                     Operator = "",
                     TypeParameter = "",
+                    Codeium = "",
                 },
             },
         },
@@ -106,6 +107,7 @@ return {
             },
             sources = {
                 { name = "nvim_lsp", keyword_length = 3, priority = 1000 },
+                { name = "codeium",  keyword_length = 3, priority = 600 },
                 { name = "path",     keyword_length = 3, priority = 500 },
                 { name = "npm",      keyword_length = 3, priority = 100 },
                 { name = "crates",   keyword_length = 3, priority = 100 },

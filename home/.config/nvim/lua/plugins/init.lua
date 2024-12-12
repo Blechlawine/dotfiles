@@ -199,12 +199,17 @@ return {
     },
 
     -- AI code completion, disabled because it makes programming boring
-    -- {
-    --     "Exafunction/codeium.vim",
-    --     lazy = false,
-    --     config = function(_, _)
-    --         -- Disable default keybindings of codeium
-    --         vim.g.codeium_disable_bindings = 1
-    --     end
-    -- },
+    {
+        "Exafunction/codeium.nvim",
+        event = { "BufRead" },
+        dependencis = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+        config = function(_, _)
+            -- Disable default keybindings of codeium
+            vim.g.codeium_disable_bindings = 1
+            require("codeium").setup({})
+        end
+    },
 }

@@ -132,14 +132,6 @@ return {
             desc = "Resume last telescope search"
         },
 
-        ---CODEIUM-----------------------------------------------------------------------------------------------------------------------
-        -- vim.keymap.set("i", "<A-[>", function() return vim.fn["codeium#CycleCompletions"](-1) end,
-        --     { desc = "Cycle completions backward", expr = true })
-        -- vim.keymap.set("i", "<A-]>", function() return vim.fn["codeium#CycleCompletions"](1) end,
-        --     { desc = "Cycle completions forward", expr = true })
-        -- vim.keymap.set("i", "<C-y>", function() return vim.fn["codeium#Accept"]() end,
-        --     { desc = "Accept completion", expr = true })
-
         ---HARPOON-----------------------------------------------------------------------------------------------------------------------
         { "<leader>h", desc = "Harpoon" },
 
