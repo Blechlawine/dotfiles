@@ -25,16 +25,45 @@ return {
     {
         mode = "n",
 
+        ---GIT---------------------------------------------------------------------------------------------------------------------------
         { "<leader>g", desc = "󰊢 Git" },
         -- vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
+        { "<leader>gg", "<cmd>LazyGit<cr>", desc = "Open LazyGit in floating window" },
+        { "<leader>gf", "<cmd>G<cr>", desc = "Open Fugitive in split" },
+        {
+            "[g",
+            function()
+                if vim.wo.diff then
+                    vim.cmd.normal({ "[g", bang = true })
+                else
+                    require("gitsigns").nav_hunk("prev")
+                end
+            end,
+            desc = "Jump to previous change"
+        },
+        {
+            "]g",
+            function()
+                if vim.wo.diff then
+                    vim.cmd.normal({ "]g", bang = true })
+                else
+                    require("gitsigns").nav_hunk("next")
+                end
+            end,
+            desc = "Jump to next change"
+        },
+        { "<leader>gp", require("gitsigns").preview_hunk, desc = "Preview hunk" },
+        { "<leader>gd", require("gitsigns").diffthis,     desc = "Diff this" },
+        { "<leader>gb", require("gitsigns").blame_line,   desc = "Open line blame" },
+
 
         -- Easy paste for system clipboard
-        { "<leader>y", [["+y]], mode = { "n", "v" }, desc = "Yank to system clipboard" },
-        { "<leader>Y", [["+Y]], desc = "Yank line to system clipboard" },
+        { "<leader>y",  [["+y]],                          mode = { "n", "v" },                   desc = "Yank to system clipboard" },
+        { "<leader>Y",  [["+Y]],                          desc = "Yank line to system clipboard" },
         -- replace selection with yank register, without copying replaced text
-        { "<leader>p", [["_dP]], mode = "x", desc = "Paste without copying replaced text" },
+        { "<leader>p",  [["_dP]],                         mode = "x",                            desc = "Paste without copying replaced text" },
 
-        { "<leader>e", nil, desc = "Code snippets" },
+        { "<leader>e",  nil,                              desc = "Code snippets" },
         -- golang if err != nil etc.
         {
             "<leader>ee",
