@@ -208,3 +208,5 @@
         - nvim
         - git
       shell: install ./temp/lazygit /usr/local/bin
+    - name: Install nix
+      shell: sh <(curl -L https://nixos.org/nix/install) --daemon
