@@ -30,6 +30,7 @@
           - libglib2.0-dev
       tags:
         - shell
+        - ghostty
     - name: Setup libsecret as git credential store
       shell: |
         sudo make --directory=/usr/share/doc/git/contrib/credential/libsecret
@@ -210,3 +211,21 @@
       shell: install ./temp/lazygit /usr/local/bin
     - name: Install nix
       shell: sh <(curl -L https://nixos.org/nix/install) --daemon
+    - name: Clone Ghostty repo
+      shell: git clone https://github.com/ghostty-org/ghostty.git ./temp/ghostty
+      tags:
+        - ghostty
+    - name: Install ghostty dependencies
+      become: true
+      apt:
+        pkg:
+          - libgtk-4-dev
+          - libadwaita-1-dev
+      tags:
+        - ghostty
+    - name: Build Ghostty with nix
+      args:
+        chdir: ./temp/ghostty
+      shell: nix build .#ghostty
+      tags:
+        - ghostty
