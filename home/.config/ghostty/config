@@ -1,0 +1,15 @@
+font-family = Maple Mono NF
+# font-style = Light
+# font-style-bold = Bold
+# font-style-italic = Italic
+# font-style-bold-italic = Bold Italic
+font-size = 17.0
+font-feature = +ss04
+font-feature = +ss05
+font-feature = +ss03
+font-feature = +ss02
+font-feature = +ss01
+
+shell-integration-features = sudo
+
+term = xterm

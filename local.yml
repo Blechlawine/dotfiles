@@ -212,7 +212,9 @@
     - name: Install nix
       shell: sh <(curl -L https://nixos.org/nix/install) --daemon
     - name: Clone Ghostty repo
-      shell: git clone https://github.com/ghostty-org/ghostty.git ./temp/ghostty
+      ansible.builtin.git:
+        repo: https://github.com/ghostty-org/ghostty.git
+        dest: ./temp/ghostty
       tags:
         - ghostty
     - name: Install ghostty dependencies
