@@ -25,8 +25,8 @@ return {
         defaults = {
             file_ignore_patterns = {
                 ".git/",
-                "node_modules",
-                "target",
+                "/node_modules",
+                "/target",
                 ".cargo/registry",
                 "CHANGELOG.md",
             },
