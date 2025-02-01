@@ -58,7 +58,7 @@
     },
     "vue setup script ts": {
         "scope": "vue",
-        "prefix": ":ts",
+        "prefix": "scriptsetup",
         "body": [
             "<script setup lang=\"ts\">",
             "$0",
