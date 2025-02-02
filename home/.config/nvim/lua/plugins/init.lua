@@ -252,5 +252,3 @@ return {
         },
     },
 }
-
--- write a function to do something
