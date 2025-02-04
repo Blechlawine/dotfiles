@@ -244,7 +244,17 @@ return {
             --Refer to: https://github.com/olimorris/codecompanion.nvim/blob/main/lua/codecompanion/config.lua
             strategies = {
                 --NOTE: Change the adapter as required
-                chat = { adapter = "ollama" },
+                chat = {
+                    adapter = "ollama",
+                    slash_commands = {
+                        ["buffer"] = {
+                            opts = {
+                                provider = "telescope",
+                                contains_code = true,
+                            },
+                        },
+                    },
+                },
                 inline = { adapter = "ollama" },
                 cmd = { adapter = "ollama" },
             },
