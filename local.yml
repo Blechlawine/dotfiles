@@ -155,16 +155,22 @@
       shell: rm -rf /usr/local/go && tar -C /usr/local -xzf ./temp/go
       tags:
         - go
+    - name: Which neovim version should be installed?
+      pause:
+        prompt: Which neovim version should be installed? (e.g. v0.10.4)
+      tags:
+        - nvim
+      register: nvim_version
     - name: Download neovim
       get_url:
-        url: https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+        url: https://github.com/neovim/neovim/releases/download/{{ nvim_version.user_input }}/nvim-linux-x86_64.tar.gz
         dest: ./temp/nvim
         mode: 0755
         force: true
       tags:
         - nvim
     - name: Install neovim
-      shell: tar xzvf ./nvim && rm -rf ~/.local/nvim && mv ./nvim-linux64 ~/.local/nvim 
+      shell: tar xzvf ./nvim && rm -rf ~/.local/nvim && mv ./nvim-linux-x86_64 ~/.local/nvim
       args:
         chdir: ./temp
       tags:
