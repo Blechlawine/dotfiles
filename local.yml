@@ -200,19 +200,16 @@
         curl -Lo ./temp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
       tags:
         - lazygit
-        - nvim
         - git
     - name: Unpack lazygit
       tags:
         - lazygit
-        - nvim
         - git
       shell: tar xf ./temp/lazygit.tar.gz --directory=./temp lazygit
     - name: Install lazygit
       become: true
       tags:
         - lazygit
-        - nvim
         - git
       shell: install ./temp/lazygit /usr/local/bin
     - name: Install nix
