@@ -6,12 +6,13 @@ return {
         version = false,
         opts = {
             provider = "jan",
+            cursor_applying_provider = "jan",
             vendors = {
                 ---@type AvanteProvider
                 jan = {
                     __inherited_from = "openai",
                     endpoint = "http://localhost:42069/v1",
-                    model = "deepseek-r1-distill-qwen-1.5b",
+                    model = "deepseek-r1-distill-llama-8b",
                     api_key_name = "",
                     timeout = 30000, -- in ms
                     temperature = 0.5,
