@@ -1,45 +1,32 @@
 return {
+    --- @type LazySpec
     {
-        "Exafunction/codeium.nvim",
-        event = { "BufRead" },
-        dependencis = {
-            "nvim-lua/plenary.nvim",
-            "hrsh7th/nvim-cmp",
-        },
-        config = function(_, _)
-            -- Disable default keybindings of codeium
-            vim.g.codeium_disable_bindings = 1
-            require("codeium").setup({})
-        end
-    },
-    {
-        "olimorris/codecompanion.nvim",
-        event = { "BufRead" },
-        dependencies = {
-            { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-            { "nvim-lua/plenary.nvim" },
-            -- Test with nvim-cmp
-            -- { "hrsh7th/nvim-cmp" },
-        },
+        "yetone/avante.nvim",
+        event = "VeryLazy",
+        version = false,
         opts = {
-            --Refer to: https://github.com/olimorris/codecompanion.nvim/blob/main/lua/codecompanion/config.lua
-            strategies = {
-                --NOTE: Change the adapter as required
-                chat = {
-                    adapter = "ollama",
-                    slash_commands = {
-                        ["buffer"] = {
-                            opts = {
-                                provider = "telescope",
-                                contains_code = true,
-                            },
-                        },
-                    },
-                },
-                inline = { adapter = "ollama" },
-                cmd = { adapter = "ollama" },
+            provider = "jan",
+            vendors = {
+                ---@type AvanteProvider
+                jan = {
+                    __inherited_from = "openai",
+                    endpoint = "http://localhost:42069/v1",
+                    model = "deepseek-r1-distill-qwen-1.5b",
+                    api_key_name = "",
+                    timeout = 30000, -- in ms
+                    temperature = 0.5,
+                    max_tokens = 4096,
+                    disable_tools = true,
+                }
             },
-            log_level = "DEBUG"
+        },
+        build = "make",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "stevearc/dressing.nvim",
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "hrsh7th/nvim-cmp",
         },
     },
 }
