@@ -199,6 +199,11 @@ return {
         -- end,
     },
 
+    {
+        "Blacklight/nvim-http",
+        cmd = { "Http" },
+    },
+
     require("plugins.wilder"),
 
     require("plugins.lualine"),
