@@ -171,3 +171,5 @@ compinit
 # starship prompt init
 eval "$(starship init zsh)"
 
+export PATH="/home/marc/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/marc/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
