@@ -12,7 +12,7 @@ return {
                 jan = {
                     __inherited_from = "openai",
                     endpoint = "http://localhost:42069/v1",
-                    model = "deepseek-r1-distill-llama-8b",
+                    model = "codestral-22b",
                     api_key_name = "",
                     timeout = 30000, -- in ms
                     temperature = 0.5,
