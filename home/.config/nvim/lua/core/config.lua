@@ -75,6 +75,8 @@ vim.filetype.add({
     },
 })
 
+vim.diagnostic.config({ virtual_lines = true })
+
 -- Highlight when yanking (copying) text (from kickstart.nvim)
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`

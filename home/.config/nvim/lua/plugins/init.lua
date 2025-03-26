@@ -24,21 +24,6 @@ return {
     -- which-key for keybindings, needs to run before creating mappings
     require("plugins.which-key"),
 
-    -- For highlighting colors like #FF0000
-    -- {
-    --     "NvChad/nvim-colorizer.lua",
-    --     init = function()
-    --         require("core.utils").lazy_load_plugin("nvim-colorizer.lua")
-    --     end,
-    --     config = function(_, opts)
-    --         require("colorizer").setup(opts)
-
-    --         -- execute colorizer as soon as possible
-    --         vim.defer_fn(function()
-    --             require("colorizer").attach_to_buffer(0)
-    --         end, 0)
-    --     end,
-    -- },
     require("plugins.icons"),
     -- blankline for indent-guides
     require("plugins.blankline"),
