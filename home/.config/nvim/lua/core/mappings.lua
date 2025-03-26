@@ -28,7 +28,6 @@ return {
         ---GIT-------------------------------------------------------------------------------------------------------------------
         { "<leader>g", desc = "󰊢 Git" },
         -- vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
-        { "<leader>gg", "<cmd>LazyGit<cr>", desc = "Open LazyGit in floating window" },
         { "<leader>gf", "<cmd>G<cr>", desc = "Open Fugitive in split" },
         {
             "[g",
