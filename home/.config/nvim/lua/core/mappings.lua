@@ -3,7 +3,7 @@ return {
     {
         mode = "i",
         -- save
-        { "<C-s>",    "<Esc>:w!<CR>",              { desc = "save" } },
+        { "<C-s>",    "<Esc>:wa!<CR>",             { desc = "save all buffers" } },
         -- moving lines up and down
         { "<C-Up>",   "<esc>:m.-2<cr>i",           { desc = "Move line up" } },
         { "<C-Down>", "<esc>:m.+1<cr>i",           { desc = "Move line down" } },
