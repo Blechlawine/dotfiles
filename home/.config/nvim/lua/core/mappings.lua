@@ -104,7 +104,8 @@ return {
 
         ---BUFFER MANAGEMENT-----------------------------------------------------------------------------------------------------
         -- close current buffer
-        { "<leader>c", ":confirm bd<CR>", desc = "Close current buffer" },
+        -- { "<leader>c", ":confirm bd<CR>", desc = "Close current buffer" },
+        { "<leader>c", function() Snacks.bufdelete() end, desc = "Close current buffer" },
         --vim.keymap.set("n", "<C-q>", "<C-w>q", { desc = "Close current window" })
         -- switching between open buffers
         -- Replaced with harpoon further down

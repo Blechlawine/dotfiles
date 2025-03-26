@@ -202,19 +202,26 @@ return {
     require("plugins.wilder"),
 
     require("plugins.lualine"),
-    {
-        "Bekaboo/dropbar.nvim",
-        lazy = false,
-        dependencies = {
-            "nvim-telescope/telescope-fzf-native.nvim",
-        },
-        opts = {},
-    },
+    -- dropbar doesn't work on neovim 0.11.0
+    -- {
+    --     "Bekaboo/dropbar.nvim",
+    --     lazy = false,
+    --     dependencies = {
+    --         "nvim-telescope/telescope-fzf-native.nvim",
+    --     },
+    --     opts = {},
+    -- },
 
     {
-        "stevearc/dressing.nvim",
+        "folke/snacks.nvim",
         lazy = false,
-        -- The default config here is good
+        ---@type snacks.Config
+        opts = {
+            lazygit = {},
+            input = {},
+            image = {},
+            bigfile = {},
+        }
     },
 
     require("plugins.ai"),
