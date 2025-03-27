@@ -9,14 +9,14 @@ local LSPWithDiagSource = {
     enabled = function()
         return true
     end,
-    execute = function(opts, done)
-        local params = util.make_position_params()
+    execute = function(_, done)
+        local params = util.make_position_params(0, 'utf-8')
         vim.lsp.buf_request_all(0, 'textDocument/hover', params, function(responses)
             local value = ''
             for clientId, response in pairs(responses) do
                 local result = response.result
                 local client = vim.lsp.get_client_by_id(clientId)
-                if result and result.contents and result.contents.value then
+                if result and result.contents and result.contents.value and client ~= nil then
                     if value ~= '' then
                         value = value .. ___
                     end
@@ -55,11 +55,7 @@ return {
             -- Require providers
             -- require("hover.providers.lsp") -- is replaced with custom provider: LSPWithDiagSource
             require("hover").register(LSPWithDiagSource)
-            -- require('hover.providers.gh')
-            -- require('hover.providers.gh_user')
-            -- require('hover.providers.jira')
             require('hover.providers.man')
-            -- require('hover.providers.dictionary')
         end,
     },
     config = function(_, opts)

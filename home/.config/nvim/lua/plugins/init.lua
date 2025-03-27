@@ -48,7 +48,7 @@ return {
     -- lsp
     require("plugins.mason"),
     require("plugins.lspconfig"),
-    require("plugins.hover"),
+    -- require("plugins.hover"),
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
