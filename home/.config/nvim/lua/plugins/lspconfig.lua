@@ -30,7 +30,7 @@ return {
         },
         "williamboman/mason-lspconfig.nvim",
     },
-    config = function(_, opts)
+    config = function(_, _)
         --  This function gets run when an LSP attaches to a particular buffer.
         --    That is to say, every time a new file is opened that is associated with
         --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -51,7 +51,8 @@ return {
                 map("<leader>lh", vim.lsp.buf.signature_help, "Show signature help")
                 map("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
                 map("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
-                map("<leader>lf", vim.lsp.buf.format, "Format buffer")
+                -- Disabled, because the lsp formatting produces garbage
+                -- map("<leader>lf", vim.lsp.buf.format, "Format buffer")
                 map(
                     "<leader>lD",
                     "<cmd>Trouble with_preview toggle focus=false<cr>",
@@ -242,6 +243,7 @@ return {
         local ensure_installed = vim.tbl_keys(servers or {})
         require('lspconfig').gleam.setup({})
         require("mason-lspconfig").setup({
+            automatic_installation = true,
             ensure_installed = ensure_installed,
             handlers = {
                 function(server_name)
