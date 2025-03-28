@@ -29,6 +29,14 @@ return {
     require("plugins.blankline"),
 
     require("plugins.treesitter"),
+    -- for autoclosing html tags
+    {
+        "windwp/nvim-ts-autotag",
+        lazy = false,
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end,
+    },
 
     -- telescope for fuzzy finding
     require("plugins.telescope"),
