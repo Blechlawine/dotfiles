@@ -234,3 +234,23 @@
       shell: nix build .#ghostty
       tags:
         - ghostty
+    - name: Clone zk repo
+      tags:
+        - zk
+      ansible.builtin.git:
+        repo: https://github.com/zk-org/zk.git
+        dest: ./temp/zk
+    - name: Build zk
+      shell: make
+      args:
+        chdir: ./temp/zk
+      tags:
+        - zk
+    - name: copy zk binary
+      ansible.builtin.copy:
+        src: ./temp/zk/zk
+        dest: ~/.local/bin/zk
+        mode: '0744'
+      tags:
+        - zk
+

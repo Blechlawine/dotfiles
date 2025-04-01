@@ -56,6 +56,17 @@ return {
     -- lsp
     require("plugins.mason"),
     require("plugins.lspconfig"),
+    {
+        -- for managing zettelkasten/obsidian notes
+        "zk-org/zk-nvim",
+        lazy = false,
+        opts = {
+            picker = "telescope",
+        },
+        config = function(_, opts)
+            require("zk").setup(opts)
+        end
+    },
     -- require("plugins.hover"),
     {
         "folke/trouble.nvim",
