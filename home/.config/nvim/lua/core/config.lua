@@ -75,7 +75,7 @@ vim.filetype.add({
     },
 })
 
-vim.diagnostic.config({ virtual_lines = true })
+vim.diagnostic.config({ virtual_text = true })
 vim.o.winborder = 'rounded'
 
 -- Highlight when yanking (copying) text (from kickstart.nvim)
