@@ -227,6 +227,4 @@ return {
             bigfile = {},
         }
     },
-
-    require("plugins.ai"),
 }
