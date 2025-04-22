@@ -146,6 +146,8 @@ return {
             -- - sr)'  - [S]urround [R]eplace [)] [']
             require("mini.surround").setup()
             require("mini.bracketed").setup()
+            require("mini.pick").setup()
+            vim.ui.select = require("mini.pick").ui_select
 
             local hipatterns = require("mini.hipatterns")
             hipatterns.setup({

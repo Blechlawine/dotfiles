@@ -49,8 +49,6 @@ return {
                 map("<leader>lr", vim.lsp.buf.rename, "Rename symbol")
                 map("gd", require("telescope.builtin").lsp_definitions, "Go to definition")
                 map("<leader>lh", vim.lsp.buf.signature_help, "Show signature help")
-                map("]d", vim.diagnostic.goto_next, "Go to next diagnostic")
-                map("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
                 -- Disabled, because the lsp formatting produces garbage
                 -- map("<leader>lf", vim.lsp.buf.format, "Format buffer")
                 map(
