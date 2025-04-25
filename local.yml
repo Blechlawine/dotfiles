@@ -253,4 +253,8 @@
         mode: '0744'
       tags:
         - zk
+    - name: Install zoxide
+      shell: cargo install zoxide --locked
+      tags:
+        - zoxide
 

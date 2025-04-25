@@ -168,6 +168,8 @@ export EDITOR="nvim"
 autoload -Uz compinit
 compinit
 
+# zoxide (better cd) init
+eval "$(zoxide init zsh --cmd j)"
 # starship prompt init
 eval "$(starship init zsh)"
 
