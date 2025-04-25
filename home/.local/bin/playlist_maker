@@ -1,0 +1,102 @@
+#!/bin/bash
+
+# Check if a filename argument is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <playlist_filename>"
+    exit 1
+fi
+
+# Append .m3u extension to the provided filename
+playlist_filename="$1.m3u"
+
+# Initialize an empty array to store selected files
+selected_files=()
+
+# Temporary file to store selected files
+temp_file=$(mktemp)
+
+# Function to check if a string is in an array
+contains() {
+    local n=$#
+    local value=${!n}
+    for ((i=1;i < $#;i++)) {
+        if [ "${!i}" == "${value}" ]; then
+            return 0
+        fi
+    }
+    return 1
+}
+
+# Function to generate the preview content
+generate_preview() {
+    echo "Selected files:"
+    cat "$temp_file"
+}
+
+export -f generate_preview
+export temp_file
+export -f contains
+
+while true; do
+    # Find all .mp3, .wav, and .flac files
+    file_options=$(find . \( -name "*.mp3" -o -name "*.wav" -o -name "*.flac" \) 2> /dev/null)
+
+    # Create a list with prefixes indicating selected files
+    prefixed_options=""
+    while IFS= read -r file; do
+        if contains "${selected_files[@]}" "$file"; then
+            prefixed_options+="[x] $file\n"
+        else
+            prefixed_options+="[ ] $file\n"
+        fi
+    done <<< "$file_options"
+
+    # Use fzf with a custom prompt
+    options=$(echo -e "$prefixed_options" | fzf --prompt="Select a file or press Ctrl+D to finish: " --preview="bash -c 'generate_preview'" --preview-window=right:60% --delimiter=' ')
+
+    # Check if fzf exited without a selection (Ctrl+D pressed)
+    if [ $? -eq 130 ]; then
+        break
+    fi
+
+    # Extract the actual file path from the selected option
+    selected_option=$(echo "$options" | sed -E 's/^\[\s*(x|)\s*\] //')
+
+    # Check if the selected file is already in the array
+    if contains "${selected_files[@]}" "$selected_option"; then
+        # Remove the file from the array and update the temporary file
+        selected_files=()
+        while IFS= read -r line; do
+            if [ "$line" != "$selected_option" ]; then
+                selected_files+=("$line")
+            fi
+        done < "$temp_file"
+        > "$temp_file"
+        for file in "${selected_files[@]}"; do
+            echo "$file" >> "$temp_file"
+        done
+    else
+        # Add the selected file to the array and update the temporary file
+        selected_files+=("$selected_option")
+        echo "$selected_option" >> "$temp_file"
+    fi
+done
+
+# Check if any files were selected
+if [ ${#selected_files[@]} -eq 0 ]; then
+    echo "No files selected. Exiting."
+    rm -f "$temp_file"
+    exit
+fi
+
+# Write the selected file paths to the playlist file
+for file in "${selected_files[@]}"; do
+    echo "$file" >> "$playlist_filename"
+done
+
+# Print the playlist filename
+echo "Playlist created: $playlist_filename"
+
+# Clean up the temporary file
+rm -f "$temp_file"
+
