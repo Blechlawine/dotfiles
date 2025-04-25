@@ -14,11 +14,17 @@
     - name: Create some folders to prevent stow conflicts
       shell: mkdir -p ~/.local/bin && mkdir -p ~/.local/lib && mkdir -p ~/.local/share/icons && mkdir -p ~/.local/share/icons/hicolor
   tasks:
-    - name: Install zsh, stow, git, curl, tmux, fzf, and some libraries
+    - name: install zsh
       become: true
       apt:
         pkg:
           - zsh
+      tags:
+        - zsh
+    - name: Install stow, git, curl, tmux, fzf, and some libraries
+      become: true
+      apt:
+        pkg:
           - stow
           - git
           - curl
@@ -42,27 +48,27 @@
           - build-essential
       tags:
         - nvim
-    - name: Change shell
+    - name: Change shell to zsh
       become: true
       shell: chsh -s $(which zsh) $(whoami)
       tags:
-        - shell
+        - zsh
     - name: Remove old .zshrc
       ansible.builtin.file:
         state: absent
         path: ~/.zshrc
       tags:
-        - shell
+        - zsh
     - name: Remove old .bashrc
       ansible.builtin.file:
         state: absent
         path: ~/.bashrc
       tags:
-        - shell
+        - zsh
     - name: Stow dotfiles
       shell: stow home
       tags:
-        - shell
+        - zsh
         - dotfiles
     - name: Install nodejs and npm
       become: true
@@ -97,6 +103,16 @@
       shell: ./temp/rustup -y
       tags:
         - rust
+    - name: Install nushell
+      shell: |
+        cargo install nu --locked
+        cargo install nu_plugin_polars --locked
+        cargo install nu_plugin_formats --locked
+        cargo install nu_plugin_gstat --locked
+        cargo install nu_plugin_query --locked
+        cargo install nu_plugin_inc --locked
+      tags:
+        - nushell
     - name: Download Bun installer
       get_url:
         url: https://bun.sh/install
@@ -173,7 +189,8 @@
     - name: Install bat
       shell: cargo install bat
       tags:
-        - rust
+        - rust-coreutils
+        - bat
     - name: Install starship
       shell: cargo install starship --locked
       tags:
@@ -181,7 +198,8 @@
     - name: Install exa
       shell: cargo install exa
       tags:
-        - rust
+        - rust-coreutils
+        - exa
     - name: Download lazygit
       shell: |
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
@@ -245,4 +263,5 @@
       shell: cargo install zoxide --locked
       tags:
         - zoxide
+        - rust-coreutils
 

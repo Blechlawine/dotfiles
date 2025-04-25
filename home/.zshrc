@@ -1,15 +1,6 @@
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/marc/.zsh/completions:"* ]]; then export FPATH="/home/marc/.zsh/completions:$FPATH"; fi
 # Uncomment this to automatically launch tmux when opening a new terminal
 # if [ -z "$TMUX" ]; then
 #   tmux
-# fi
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
 # fi
 
 # Aliases
@@ -60,11 +51,6 @@ source /usr/share/doc/fzf/examples/completion.zsh
 [ -s "/home/marc/.bun/_bun" ] && source "/home/marc/.bun/_bun"
 
 export EDITOR="nvim"
-
-. "$HOME/.deno/env"
-# Initialize zsh completions (added by deno install script)
-autoload -Uz compinit
-compinit
 
 # zoxide (better cd) init
 eval "$(zoxide init zsh)"
