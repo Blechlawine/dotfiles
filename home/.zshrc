@@ -67,7 +67,7 @@ autoload -Uz compinit
 compinit
 
 # zoxide (better cd) init
-eval "$(zoxide init zsh --cmd j)"
+eval "$(zoxide init zsh)"
 # starship prompt init
 eval "$(starship init zsh)"
 
