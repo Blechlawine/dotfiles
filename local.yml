@@ -47,18 +47,6 @@
       shell: chsh -s $(which zsh) $(whoami)
       tags:
         - shell
-    - name: Remove old version of oh-my-zsh
-      ansible.builtin.file:
-        state: absent
-        path: ~/.oh-my-zsh
-    - name: Install Oh-my-zsh
-      shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-      tags:
-        - shell
-    - name: Download zsh theme
-      shell: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-      tags:
-        - shell
     - name: Remove old .zshrc
       ansible.builtin.file:
         state: absent
