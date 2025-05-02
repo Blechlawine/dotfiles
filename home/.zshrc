@@ -29,6 +29,15 @@ bindkey -s ^a "tmux-session-finder\n"
 # Ctrl+\ to open yazi
 bindkey -s ^\\ "yazi\n"
 
+# Ctrl+Backspace
+bindkey '^H' backward-kill-word
+# Ctrl+Delete
+bindkey '^[[3;5~' kill-word
+# Ctrl+Arrow right
+bindkey "^[[1;5C" forward-word
+# Ctrl+Arrow left
+bindkey "^[[1;5D" backward-word
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -56,6 +65,9 @@ export EDITOR="nvim"
 eval "$(zoxide init zsh)"
 # starship prompt init
 eval "$(starship init zsh)"
+
+# atuin history init
+eval "$(atuin init zsh)"
 
 export PATH="/home/marc/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/marc/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

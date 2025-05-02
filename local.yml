@@ -264,4 +264,9 @@
       tags:
         - zoxide
         - rust-coreutils
+    - name: Install atuin
+      shell: cargo install atuin
+      tags:
+        - atuin
+        - rust-coreutils
 
