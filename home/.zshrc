@@ -8,6 +8,7 @@ alias la='ls -ah'
 alias ll='ls -laFh'
 
 alias ..='cd ..'
+alias cd='z'
 
 alias vim='nvim'
 alias vi='nvim'
