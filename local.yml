@@ -48,6 +48,7 @@
           - build-essential
       tags:
         - nvim
+        - rust-coreutils
     - name: Change shell to zsh
       become: true
       shell: chsh -s $(which zsh) $(whoami)
