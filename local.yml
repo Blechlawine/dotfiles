@@ -149,7 +149,7 @@
         - stow
     - name: Download Go installer
       get_url:
-        url: https://go.dev/dl/go1.21.1.linux-amd64.tar.gz
+        url: https://go.dev/dl/go1.24.3.linux-amd64.tar.gz
         dest: ./temp/go
         mode: 0755
         force: true
