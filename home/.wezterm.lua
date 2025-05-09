@@ -4,7 +4,8 @@ local config = wezterm.config_builder()
 
 config.font = wezterm.font("Maple Mono NF Light")
 config.font_size = 17.0
-config.color_scheme = "tokyonight_night"
+-- config.color_scheme = "tokyonight_night"
+config.color_scheme = "One Half Black (Gogh)"
 
 config.enable_tab_bar = false
 
