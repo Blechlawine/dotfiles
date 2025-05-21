@@ -21,6 +21,19 @@ return {
         lazy = false,
         opts = {},
     },
+    {
+        -- neodev for neovim lua development
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+            library = {
+                "lazy.nvim",
+                "LazyVim",
+                -- Load luvit types when the `vim.uv` word is found
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            },
+        },
+    },
     -- which-key for keybindings, needs to run before creating mappings
     require("plugins.which-key"),
 

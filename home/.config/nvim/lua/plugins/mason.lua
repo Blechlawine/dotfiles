@@ -1,6 +1,6 @@
 --- @type LazySpec
 return {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     lazy = false,
     cmd = {
         "Mason",

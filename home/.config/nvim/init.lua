@@ -4,7 +4,6 @@ require("core.config") -- Apply config
 -- add binaries installed by mason.nvim to path
 vim.env.PATH = vim.env.PATH .. ":" .. vim.fn.stdpath("data") .. "/mason/bin"
 
-
 -- Install lazy.nvim (Code snippet from: https://github.com/folke/lazy.nvim?tab=readme-ov-file#-installation)
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazy_path) then

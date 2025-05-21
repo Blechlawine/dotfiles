@@ -2,33 +2,17 @@
 return {
     "neovim/nvim-lspconfig",
     lazy = false,
-    init = function()
-        require("core.utils").lazy_load_plugin("nvim-lspconfig")
-    end,
-    opts = {
-        inlay_hints = { enabled = true },
-    },
+    -- init = function()
+    --     require("core.utils").lazy_load_plugin("nvim-lspconfig")
+    -- end,
+    -- opts = {
+    --     inlay_hints = { enabled = true },
+    -- },
     dependencies = {
         -- Useful status updates for LSP.
         -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
         { 'j-hui/fidget.nvim', tag = "v1.0.0", opts = {} },
-        {
-            -- neodev for neovim lua development
-            "folke/neodev.nvim",
-            lazy = false,
-            opts = {
-                library = {
-                    enabled = true,
-                    runtime = true,
-                    types = true,
-                    plugins = true,
-                },
-            },
-            config = function(_, opts)
-                require("neodev").setup(opts)
-            end,
-        },
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
     },
     config = function(_, _)
         --  This function gets run when an LSP attaches to a particular buffer.
@@ -77,182 +61,203 @@ return {
             end,
         })
 
-        -- LSP servers and clients are able to communicate to each other what features they support.
-        --  By default, Neovim doesn't support everything that is in the LSP specification.
-        --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-        --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+        require("mason-lspconfig").setup({
+            automatic_enable = true,
+            ensure_installed = {
+                "lua_ls",
+                "volar",
+                "vtsls",
+                "htmx",
+                "biome",
+                "cssls",
+                "astro",
+                "taplo",
+                "jsonls",
+                "html",
+                "emmet_ls",
+                "tailwindcss",
+                "rust_analyzer"
+            },
+        })
 
-        -- configure LSP servers
-        local servers = {
-            lua_ls = {},
-            rust_analyzer = {
-                settings = {
-                    ["rust-analyzer"] = {
-                        check = {
-                            command = "clippy",
-                        },
-                        -- rustfmt = {
-                        --     overrideCommand = { "leptosfmt", "--config-file", "~/.config/nvim/leptosfmt.toml", "--stdin", "--rustfmt" } -- this doesnt work yet for some reason (it only works without the config file)
-                        -- }
+        vim.lsp.config("rust_analyzer", {
+            settings = {
+                ["rust-analyzer"] = {
+                    check = {
+                        command = "clippy",
                     },
+                    -- rustfmt = {
+                    --     overrideCommand = { "leptosfmt", "--config-file", "~/.config/nvim/leptosfmt.toml", "--stdin", "--rustfmt" } -- this doesnt work yet for some reason (it only works without the config file)
+                    -- }
                 },
             },
-            tailwindcss = {
-                filetypes = {
-                    "html",
-                    "css",
-                    "scss",
-                    "javascript",
-                    "typescript",
-                    "typescriptreact",
-                    "javascriptreact",
-                    "astro",
-                    "svelte",
-                    "vue",
-                    "rust",
-                    "templ",
-                },
-                settings = {
-                    tailwindCSS = {
-                        classAttributes = {
-                            "class",
-                            "className",
-                            "classList",
-                            "ngClass",
-                            ":class",
-                        },
-                        emmetCompletions = true,
-                        experimental = {
-                            classRegex = {
-                                [[class="([^"]*)]],
-                                [[class: ?"([^"]*)]],
-                                [[:class="([^"]*)]],
-                                -- [[:ui=".*'([^']*)]], -- doesn't work
-                                -- ":ui=\".*'([^']+).*", -- doesn't work
-
-                                [["([^"]*)]],
-                                -- [[class= "([^"]*)]],
-                                -- [[class: "([^"]*)]],
-                                -- '~H""".*class="([^"]*)".*"""',
-                                [=["view!\\[\"([^\\]]+)\"\\]"]=],
-                                'view!\\["([^\\]]+)"\\]',
-                                -- [[class="([^"]*)]],
-                                -- 'class=\\s+"([^"]*)',
-                            },
-                        },
-                    },
-                    includeLanguages = {
-                        rust = "html",
-                        ["*.rs"] = "html",
-                        templ = "html",
-                        ["*.templ"] = "html",
-                    },
-                },
-            },
-            emmet_ls = {
-                filetypes = {
-                    "html",
-                    "vue",
-                    "css",
-                    "handlebars",
-                    "scss",
-                    "typescriptreact",
-                    "javascriptreact",
-                    "javascript",
-                    "svelte",
-                    "rust",
-                    "templ",
-                    "astro",
-                },
-                init_options = {
-                    jsx = {
-                        options = {
-                            ["markup.attributes"] = {
-                                class = "class",
-                            }
+            capabilities = {
+                textDocument = {
+                    completion = {
+                        completionItem = {
+                            snippetSupport = false
                         }
                     }
                 }
-            },
-            ts_ls = {
-                settings = {
-                    tsserver = {
-                        typescript = {
-                            tsserver = {
-                                experimental = {
-                                    enableProjectDiagnostics = true,
-                                },
-                            },
-                        },
-                    },
-                },
-                init_options = {
-                    plugins = {
-                        {
-                            name = "@vue/typescript-plugin",
-                            location = require("mason-registry").get_package("vue-language-server"):get_install_path() ..
-                                "/node_modules/@vue/language-server",
-                            languages = { "vue" },
-                        },
-                    },
-                },
-                filetypes = {
-                    "typescript",
-                    "javascript",
-                    "typescriptreact",
-                    "javascriptreact",
-                    "vue",
-                },
-            },
-            html = {},
-            jsonls = {
-                settings = {
-                    json = {
-                        schemas = {
-                            {
-                                fileMatch = { "package.json" },
-                                url = "https://json.schemastore.org/package.json",
-                            },
-                        },
-                    },
-                },
-            },
-            volar = {},
-            svelte = {},
-            biome = {},
-            prismals = {},
-            cssls = {},
-            astro = {},
-            templ = {},
-            gopls = {},
-            taplo = {},
-            htmx = {
-                filetypes = {
-                    "html",
-                    "hbs",
-                    -- "rust", -- Disable in rust files because it breaks rust_analyzer hover
-                    "templ",
-                },
-            },
-        }
-
-        local ensure_installed = vim.tbl_keys(servers or {})
-        require('lspconfig').gleam.setup({})
-        require("mason-lspconfig").setup({
-            automatic_installation = true,
-            ensure_installed = ensure_installed,
-            handlers = {
-                function(server_name)
-                    local server = servers[server_name] or {}
-                    -- This handles overriding only values explicitly passed
-                    --  by the server configuration above. Useful when disabling
-                    --  certain features of an LSP (for example, turning off formatting for tsserver)
-                    server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-                    require('lspconfig')[server_name].setup(server)
-                end
             }
         })
+
+        vim.lsp.config("tailwindcss", {
+            filetypes = {
+                "html",
+                "css",
+                "scss",
+                "javascript",
+                "typescript",
+                "typescriptreact",
+                "javascriptreact",
+                "astro",
+                "svelte",
+                "vue",
+                "rust",
+                "templ",
+            },
+            settings = {
+                tailwindCSS = {
+                    classAttributes = {
+                        "class",
+                        "className",
+                        "classList",
+                        "ngClass",
+                        ":class",
+                    },
+                    emmetCompletions = true,
+                    experimental = {
+                        classRegex = {
+                            [[class="([^"]*)]],
+                            [[class: ?"([^"]*)]],
+                            [[:class="([^"]*)]],
+                            -- [[:ui=".*'([^']*)]], -- doesn't work
+                            -- ":ui=\".*'([^']+).*", -- doesn't work
+
+                            [["([^"]*)]],
+                            -- [[class= "([^"]*)]],
+                            -- [[class: "([^"]*)]],
+                            -- '~H""".*class="([^"]*)".*"""',
+                            -- [=["view!\\[\"([^\\]]+)\"\\]"]=],
+                            -- 'view!\\["([^\\]]+)"\\]',
+                            -- [[class="([^"]*)]],
+                            -- 'class=\\s+"([^"]*)',
+                        },
+                    },
+                },
+                includeLanguages = {
+                    rust = "html",
+                    ["*.rs"] = "html",
+                    templ = "html",
+                    ["*.templ"] = "html",
+                },
+            },
+        })
+
+        vim.lsp.config("emmet_ls", {
+            filetypes = {
+                "html",
+                "vue",
+                "css",
+                "handlebars",
+                "scss",
+                "typescriptreact",
+                "javascriptreact",
+                "javascript",
+                "svelte",
+                "rust",
+                "templ",
+                "astro",
+            },
+            init_options = {
+                jsx = {
+                    options = {
+                        ["markup.attributes"] = {
+                            class = "class",
+                        }
+                    }
+                }
+            }
+        })
+
+        vim.lsp.config("jsonls", {
+            settings = {
+                json = {
+                    schemas = {
+                        {
+                            fileMatch = { "package.json" },
+                            url = "https://json.schemastore.org/package.json",
+                        },
+                    },
+                },
+            },
+        })
+
+        vim.lsp.config("volar", {
+            init_options = {
+                vue = {
+                    hybridMode = true,
+                },
+                typescript = {
+                    tsserverRequestCommand = 'tsserverRequest',
+                },
+            },
+            on_init = function(client)
+                client.handlers['tsserverRequest'] = function(error, result, context, config)
+                    local ts_client = vim.lsp.get_clients({ bufnr = context.bufnr, name = 'vtsls' })[1]
+                    local params = {
+                        command = 'typescript.tsserverRequest',
+                        arguments = unpack(result),
+                    }
+                    local res = ts_client:request_sync('workspace/executeCommand', params)
+                    --TODO: nil and error check
+                    return res.result.body
+                end
+            end,
+            on_attach = function(client, _)
+                client.server_capabilities.documentFormattingProvider = nil
+            end,
+        })
+
+        vim.lsp.config("vtsls", {
+            settings = {
+                vtsls = {
+                    tsserver = {
+                        experimental = {
+                            enableProjectDiagnostics = true
+                        },
+                        globalPlugins = {
+                            {
+                                name = "@vue/typescript-plugin",
+                                location = vim.fn.expand("$MASON/packages") ..
+                                    "/vue-language-server" .. '/node_modules/@vue/language-server',
+                                languages = { "vue" },
+                                configNamespace = "typescript",
+                                enableForWorkspaceTypescriptVersions = true,
+                            },
+                        },
+                    }
+                }
+            },
+            filetypes = {
+                "typescript",
+                "javascript",
+                "typescriptreact",
+                "javascriptreact",
+                "vue",
+            },
+        })
+
+        vim.lsp.config("htmx", {
+            filetypes = {
+                "html",
+                "hbs",
+                -- "rust", -- Disable in rust files because it breaks rust_analyzer hover
+                "templ",
+            },
+        })
+
+        vim.lsp.config("gleam", {})
     end,
 }
