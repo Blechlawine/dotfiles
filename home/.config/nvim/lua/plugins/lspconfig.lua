@@ -134,7 +134,6 @@ return {
                             [[:class="([^"]*)]],
                             -- [[:ui=".*'([^']*)]], -- doesn't work
                             -- ":ui=\".*'([^']+).*", -- doesn't work
-
                             [["([^"]*)]],
                             -- [[class= "([^"]*)]],
                             -- [[class: "([^"]*)]],
@@ -194,31 +193,7 @@ return {
             },
         })
 
-        vim.lsp.config("volar", {
-            init_options = {
-                vue = {
-                    hybridMode = true,
-                },
-                typescript = {
-                    tsserverRequestCommand = 'tsserverRequest',
-                },
-            },
-            on_init = function(client)
-                client.handlers['tsserverRequest'] = function(error, result, context, config)
-                    local ts_client = vim.lsp.get_clients({ bufnr = context.bufnr, name = 'vtsls' })[1]
-                    local params = {
-                        command = 'typescript.tsserverRequest',
-                        arguments = unpack(result),
-                    }
-                    local res = ts_client:request_sync('workspace/executeCommand', params)
-                    --TODO: nil and error check
-                    return res.result.body
-                end
-            end,
-            on_attach = function(client, _)
-                client.server_capabilities.documentFormattingProvider = nil
-            end,
-        })
+        vim.lsp.config("volar", {})
 
         vim.lsp.config("vtsls", {
             settings = {
