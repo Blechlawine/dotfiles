@@ -96,7 +96,7 @@ return {
             "nvim-lua/plenary.nvim"
         },
         opts = {
-            src = {
+            completion = {
                 cmp = {
                     enabled = true,
                 },
