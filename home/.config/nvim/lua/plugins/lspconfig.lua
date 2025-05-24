@@ -65,7 +65,7 @@ return {
             automatic_enable = true,
             ensure_installed = {
                 "lua_ls",
-                "volar",
+                "vue_ls",
                 "vtsls",
                 "htmx",
                 "biome",
