@@ -54,6 +54,7 @@ return {
         { "<leader>gp", require("gitsigns").preview_hunk, desc = "Preview hunk" },
         { "<leader>gd", require("gitsigns").diffthis,     desc = "Diff this" },
         { "<leader>gb", require("gitsigns").blame_line,   desc = "Open line blame" },
+        { "<leader>gs", ":Neotree git_status show<CR>",   desc = "Show git status in tree" },
 
 
         -- Easy paste for system clipboard
