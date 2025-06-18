@@ -3,13 +3,13 @@ return {
     {
         mode = "i",
         -- save
-        { "<C-s>",    "<Esc>:wa!<CR>",             { desc = "save all buffers" } },
+        { "<C-s>",    "<Esc>:wa!<CR>",            { desc = "save all buffers" } },
         -- moving lines up and down
-        { "<C-Up>",   "<esc>:m.-2<cr>i",           { desc = "Move line up" } },
-        { "<C-Down>", "<esc>:m.+1<cr>i",           { desc = "Move line down" } },
+        { "<C-Up>",   "<esc>:m.-2<cr>i",          { desc = "Move line up" } },
+        { "<C-Down>", "<esc>:m.+1<cr>i",          { desc = "Move line down" } },
 
         -- Open file-explorer
-        { "<C-\\>",   "<esc>:Neotree toggle<cr>i", { desc = "Open Neotree" } },
+        { "<C-\\>",   "<esc>:Neotree reveal<cr>", { desc = "Open Neotree" } },
 
         -- accept emmet completion
         {
@@ -98,7 +98,7 @@ return {
         { "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', desc = "move down", expr = true },
 
         -- Open file-explorer
-        { "<C-\\>", ":Neotree toggle<cr>", desc = "Open Neotree" },
+        { "<C-\\>", ":Neotree reveal<cr>", desc = "Open Neotree" },
 
         -- tmux-sessionizer
         { "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>", desc = "tmux-sessionizer" },
