@@ -234,6 +234,7 @@ return {
     {
         "folke/snacks.nvim",
         lazy = false,
+        ---@module "snacks.nvim"
         ---@type snacks.Config
         opts = {
             lazygit = {},
@@ -241,5 +242,17 @@ return {
             image = {},
             bigfile = {},
         }
+    },
+    {
+        "supermaven-inc/supermaven-nvim",
+        lazy = false,
+        config = function()
+            require("supermaven-nvim").setup({
+                keymaps = {
+                    accept_suggestion = "<C-y>",
+                    clear_suggestion = "<C-n>",
+                },
+            })
+        end
     },
 }
