@@ -125,7 +125,9 @@ return {
             formatters_by_ft = {
                 javascript = { "biome" },
                 typescript = { "biome" },
+                css = { "biome" },
                 json = { "biome" },
+                jsonc = { "biome" },
                 lua = { "stylua" },
                 vue = { "prettierd" },
             },
