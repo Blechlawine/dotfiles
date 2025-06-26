@@ -81,6 +81,20 @@ return {
             },
         })
 
+        vim.lsp.config("biome", {
+            filetypes = {
+                "html",
+                "css",
+                "json",
+                "jsonc",
+                "javascript",
+                "typescript",
+                "typescriptreact",
+                "javascriptreact",
+                "vue",
+            },
+        })
+
         vim.lsp.config("rust_analyzer", {
             settings = {
                 ["rust-analyzer"] = {
