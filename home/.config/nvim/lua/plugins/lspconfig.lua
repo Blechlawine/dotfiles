@@ -76,7 +76,8 @@ return {
                 "html",
                 "emmet_ls",
                 "tailwindcss",
-                "rust_analyzer"
+                "rust_analyzer",
+                "svelte",
             },
         })
 
@@ -194,6 +195,8 @@ return {
         })
 
         vim.lsp.config("volar", {})
+
+        vim.lsp.config("svelte", {})
 
         vim.lsp.config("vtsls", {
             settings = {
