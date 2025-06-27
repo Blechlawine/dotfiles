@@ -138,27 +138,9 @@ return {
                         "class",
                         "className",
                         "classList",
-                        "ngClass",
                         ":class",
                     },
                     emmetCompletions = true,
-                    experimental = {
-                        classRegex = {
-                            [[class="([^"]*)]],
-                            [[class: ?"([^"]*)]],
-                            [[:class="([^"]*)]],
-                            -- [[:ui=".*'([^']*)]], -- doesn't work
-                            -- ":ui=\".*'([^']+).*", -- doesn't work
-                            [["([^"]*)]],
-                            -- [[class= "([^"]*)]],
-                            -- [[class: "([^"]*)]],
-                            -- '~H""".*class="([^"]*)".*"""',
-                            -- [=["view!\\[\"([^\\]]+)\"\\]"]=],
-                            -- 'view!\\["([^\\]]+)"\\]',
-                            -- [[class="([^"]*)]],
-                            -- 'class=\\s+"([^"]*)',
-                        },
-                    },
                 },
                 includeLanguages = {
                     rust = "html",
