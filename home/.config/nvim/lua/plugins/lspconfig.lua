@@ -91,7 +91,6 @@ return {
                 "typescript",
                 "typescriptreact",
                 "javascriptreact",
-                "vue",
             },
         })
 
