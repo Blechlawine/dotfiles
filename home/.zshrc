@@ -74,3 +74,6 @@ export PATH="/home/marc/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/marc/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 export ZK_NOTEBOOK_DIR="/media/marc/Working-drive/Obsidian_Vaults/Personal"
+
+# opencode
+export PATH=/home/marc/.opencode/bin:$PATH
