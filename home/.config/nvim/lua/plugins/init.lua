@@ -129,7 +129,7 @@ return {
                 json = { "biome" },
                 jsonc = { "biome" },
                 lua = { "stylua" },
-                vue = { "prettierd" },
+                vue = { "prettier" },
             },
             formatters = {
                 prettierd = {
