@@ -93,11 +93,15 @@ return {
                 TelescopePreviewBorder = { fg = color.lighten("bg", 5, "onedark_dark"), bg = color.lighten("bg", 5, "onedark_dark") },
                 TelescopePreviewNormal = { bg = color.lighten("bg", 5, "onedark_dark") },
                 TelescopeNormal = { bg = "${bg}" },
+
+                HarpoonBorder = { fg = "${green}", bg = "${bg}" },
+                HarpoonWindow = { bg = "${bg}" },
             },
         })
         vim.cmd("colorscheme onedark_dark")
     end,
 }
+
 -- Alternative themes
 -- {
 --     "catppuccin/nvim",
