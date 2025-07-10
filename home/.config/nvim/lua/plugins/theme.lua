@@ -30,8 +30,8 @@ return {
             },
             colors = {
                 purple = "#A656AC",
-                float_bg = color.lighten("bg", 8, "onedark_dark"),
-                float_select = color.lighten("bg", 16, "onedark_dark"),
+                float_bg = color.lighten("bg", 10, "onedark_dark"),
+                float_select = color.lighten("bg", 20, "onedark_dark"),
             },
             highlights = {
                 NormalFloat = {
@@ -81,6 +81,18 @@ return {
                 CmpItemKindInterface = { fg = color.lighten("cyan", cmpKindLightenAmount, "onedark_dark"), bg = "${cyan}" },
                 CmpItemKindColor = { fg = color.lighten("cyan", cmpKindLightenAmount, "onedark_dark"), bg = "${cyan}" },
                 CmpItemKindTypeParameter = { fg = color.lighten("cyan", cmpKindLightenAmount, "onedark_dark"), bg = "${cyan}" },
+
+                TelescopePromptBorder = { fg = "${bg}", bg = "${bg}" },
+                TelescopePromptNormal = { bg = "${bg}" },
+                TelescopePromptTitle = { fg = "${bg}", bg = "${red}" },
+                TelescopePromptPrefix = { fg = "${red}" },
+                TelescopeResultsTitle = { fg = "${bg}", bg = "${green}" },
+                TelescopeResultsBorder = { fg = color.lighten("bg", 5, "onedark_dark"), bg = color.lighten("bg", 5, "onedark_dark") },
+                TelescopeResultsNormal = { bg = color.lighten("bg", 5, "onedark_dark") },
+                TelescopePreviewTitle = { fg = "${bg}", bg = "${cyan}" },
+                TelescopePreviewBorder = { fg = color.lighten("bg", 5, "onedark_dark"), bg = color.lighten("bg", 5, "onedark_dark") },
+                TelescopePreviewNormal = { bg = color.lighten("bg", 5, "onedark_dark") },
+                TelescopeNormal = { bg = "${bg}" },
             },
         })
         vim.cmd("colorscheme onedark_dark")

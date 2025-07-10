@@ -26,10 +26,15 @@ return {
             file_ignore_patterns = {
                 ".git/",
                 "/node_modules",
+                "bun.lock",
+                "cargo.lock",
                 "/target",
                 ".cargo/registry",
                 "CHANGELOG.md",
             },
+            prompt_prefix = "   ",
+            selection_caret = " ",
+            entry_prefix = " ",
             path_display = { "truncate" },
             sorting_strategy = "ascending",
             layout_config = {
@@ -37,12 +42,8 @@ return {
                     prompt_position = "top",
                     preview_width = 0.55,
                 },
-                vertical = {
-                    mirror = false,
-                },
                 width = 0.87,
                 height = 0.80,
-                preview_cutoff = 120,
             },
             vimgrep_arguments = {
                 'rg',
@@ -54,7 +55,6 @@ return {
                 '--smart-case',
                 '--hidden',
             },
-            border = false,
         },
         extensions = {
             ["ui-select"] = {
