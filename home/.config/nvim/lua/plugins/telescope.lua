@@ -54,6 +54,7 @@ return {
                 '--smart-case',
                 '--hidden',
             },
+            border = false,
         },
         extensions = {
             ["ui-select"] = {
