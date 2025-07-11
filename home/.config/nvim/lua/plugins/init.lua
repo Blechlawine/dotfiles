@@ -132,9 +132,9 @@ return {
                 vue = { "prettier" },
             },
             formatters = {
-                prettierd = {
+                prettier = {
                     env = {
-                        PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/.prettierrc.json"),
+                        PRETTIER_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/.prettierrc.json"),
                     },
                 },
             },
