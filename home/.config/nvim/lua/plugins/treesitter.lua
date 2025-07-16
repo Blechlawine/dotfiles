@@ -4,8 +4,18 @@ return {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         build = ":TSUpdate",
+        branch = "main",
         opts = {
-            ensure_installed = {
+            auto_install = true,
+            highlight = {
+                enable = true,
+                use_languagetree = true,
+            },
+            indent = { enable = true },
+        },
+        config = function(_, opts)
+            require("nvim-treesitter").setup(opts)
+            require("nvim-treesitter").install({
                 "bash",
                 "html",
                 "vue",
@@ -23,16 +33,7 @@ return {
                 "markdown",
                 "vim",
                 "vimdoc",
-            },
-            auto_install = true,
-            highlight = {
-                enable = true,
-                use_languagetree = true,
-            },
-            indent = { enable = true },
-        },
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
+            })
             vim.treesitter.language.register("go", "templ")
         end,
     },
