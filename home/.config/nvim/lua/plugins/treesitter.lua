@@ -4,7 +4,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         build = ":TSUpdate",
-        branch = "main",
+        branch = "master",
         opts = {
             auto_install = true,
             highlight = {
@@ -12,28 +12,28 @@ return {
                 use_languagetree = true,
             },
             indent = { enable = true },
-        },
-        config = function(_, opts)
-            require("nvim-treesitter").setup(opts)
-            require("nvim-treesitter").install({
-                "bash",
-                "html",
-                "vue",
-                "svelte",
+            ensure_installed = {
                 "astro",
+                "bash",
                 "css",
-                "typescript",
-                "yaml",
-                "json",
-                "rust",
                 "go",
-                "toml",
+                "html",
+                "json",
                 "lua",
                 "luadoc",
                 "markdown",
+                "rust",
+                "svelte",
+                "toml",
+                "typescript",
                 "vim",
                 "vimdoc",
-            })
+                "vue",
+                "yaml",
+            }
+        },
+        config = function(_, opts)
+            require("nvim-treesitter.configs").setup(opts)
             vim.treesitter.language.register("go", "templ")
         end,
     },
