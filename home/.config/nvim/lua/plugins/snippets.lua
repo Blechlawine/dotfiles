@@ -16,6 +16,16 @@ return {
             }
         })
 
+        local ls = require("luasnip")
+        local s = ls.snippet;
+        local t = ls.text_node;
+        local utils = require("core.utils")
+        ls.add_snippets("json", {
+            s("biome.json", {
+                t(utils.split_lines(utils.read_file(os.getenv("HOME") .. "/.config/nvim/biome.json")))
+            })
+        })
+
         vim.api.nvim_create_autocmd("InsertLeave", {
             callback = function()
                 if

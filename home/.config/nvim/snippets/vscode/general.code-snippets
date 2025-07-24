@@ -15,53 +15,6 @@
     // 	],
     // 	"description": "Log output to console"
     // }
-    "biome.json": {
-        "scope": "json",
-        "prefix": "biome.json",
-        "body": [
-            "{",
-            "    \"\$schema\": \"./node_modules/@biomejs/biome/configuration_schema.json\",",
-            "    \"formatter\": {",
-            "        \"indentWidth\": 4,",
-            "        \"indentStyle\": \"space\",",
-            "        \"lineWidth\": 120,",
-            "        \"formatWithErrors\": true",
-            "    },",
-            "    \"linter\": {",
-            "        \"rules\": {",
-            "            \"a11y\": {",
-            "                \"useKeyWithClickEvents\": "off"",
-            "            }",
-            "        }",
-            "    },",
-            "    \"files\": {",
-            "        \"includes\": [",
-            "            \"**\",",
-            "            \"!**/.pnp.cjs\",",
-            "            \"!**/.nuxt\",",
-            "            \"!**/node_modules\",",
-            "            \"!**/.output\",",
-            "            \"!**/dist\",",
-            "            \"!**/.git\",",
-            "            \"!**/migrations\"",
-            "        ],",
-            "        \"ignoreUnknown\": true",
-            "    },",
-            "    \"vcs\": {",
-            "        \"enabled\": true,",
-            "        \"clientKind\": \"git\",",
-            "        \"useIgnoreFile\": true",
-            "    },",
-            "    \"assist\": {",
-            "        \"actions\": {",
-            "            \"source\": {",
-            "                \"organizeImports\": \"on\"",
-            "            }",
-            "        }",
-            "    }",
-            "}"
-        ]
-    },
     "giy": {
         "scope": "gitignore",
         "prefix": "gitignoreyarn",
@@ -89,14 +42,5 @@
             "!.yarn/versions"
         ],
         "description": "gitignore config for yarn with zero installs"
-    },
-    "pnpm-workspace.yaml": {
-        "scope": "yaml",
-        "prefix": "pnpm-ws",
-        "body": [
-            "packages:",
-            "  - apps/*",
-            "  - packages/*",
-        ]
     }
 }

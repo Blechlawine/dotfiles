@@ -44,6 +44,24 @@ return {
         return json
     end,
 
+    read_file = function(filename)
+        local Path = require("plenary.path")
+        local path = Path:new(filename)
+        if not path:exists() then
+            return nil
+        end
+        return path:read()
+    end,
+
+    -- Function to split a string into lines
+    split_lines = function(text)
+        local lines = {}
+        for line in text:gmatch("([^\n]+)") do
+            table.insert(lines, line)
+        end
+        return lines
+    end,
+
     read_package_json = function()
         local utils = require("core.utils")
         return utils.read_json_file("package.json")
