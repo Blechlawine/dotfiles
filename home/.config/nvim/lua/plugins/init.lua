@@ -129,12 +129,12 @@ return {
                 json = { "biome" },
                 jsonc = { "biome" },
                 lua = { "stylua" },
-                vue = { "prettier" },
+                vue = { "prettierd" },
             },
             formatters = {
-                prettier = {
+                prettierd = {
                     env = {
-                        PRETTIER_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/.prettierrc.json"),
+                        PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/.prettierrc.json"),
                     },
                 },
             },
