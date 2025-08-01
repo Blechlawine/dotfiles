@@ -254,6 +254,11 @@ return {
                     accept_suggestion = "<C-y>",
                     clear_suggestion = "<C-n>",
                 },
+                ignore_filetypes = { "TelescopePrompt", "neo-tree" },
+                color = {
+                    suggestion_color = "#333333",
+                    cterm = 244,
+                }
             })
         end
     },
