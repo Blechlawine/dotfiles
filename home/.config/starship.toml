@@ -1,0 +1,23 @@
+[bun]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[php]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[docker_context]
+symbol = " "
