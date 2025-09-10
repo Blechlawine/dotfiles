@@ -78,6 +78,8 @@ vim.filetype.add({
 vim.diagnostic.config({ virtual_text = true })
 vim.o.winborder = 'none'
 
+vim.opt.mouse = ""
+
 -- Highlight when yanking (copying) text (from kickstart.nvim)
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
